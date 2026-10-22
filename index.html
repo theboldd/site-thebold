@@ -1,0 +1,1430 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="The Bold — Agência de Marketing">
+<meta property="og:description" content="Efeito Bold: se transforme em uma marca audaciosa. Estratégia, conteúdo e design para Instagram.">
+<meta property="og:image" content="https://thebold.com.br/img/01-vogue.jpg">
+<meta property="og:url" content="https://thebold.com.br/">
+<meta name="theme-color" content="#000000">
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>The Bold — Agência de Marketing</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The Bold — agência de marketing. Estratégia, conteúdo, posicionamento e presença digital. Efeito Bold: se transforme em uma marca audaciosa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Hanken+Grotesk:wght@300..700&family=Instrument+Serif:ital@0;1&display=swap">
+<!--
+  THE BOLD — Edição Nº 01
+  FOTOS: coloque os arquivos na pasta img/ ao lado desta página, com estes nomes:
+    img/01-vogue.jpg     — look P&B com a revista na mão (capa)
+    img/02-cafe.jpg      — mão erguendo o café (manifesto)
+    img/03-camera.jpg    — perfil com a câmera no ombro (gerenciamento)
+    img/04-retrato.jpg   — retrato segurando a câmera (pessoas)
+    img/05-whatsapp.jpg  — mesa com celular "THE BOLD", caneca e óculos (contato)
+    img/06-mesa.jpg      — mesa com câmera, café e celular, luz dura (index / archive)
+    img/07-estudio.jpg   — estúdio com refletores e notebook (abertura "The people behind the Bold")
+  Cada espaço já tem o recorte (data-pos) escolhido para a foto. Enquanto o arquivo
+  não existir, aparece a moldura de marcação.
+  Contatos: edite o objeto CONFIG no início do <script>.
+-->
+<style>
+/* Layout: revista digital em capítulos. Cada seção tem um tom (preto / off-white / bordô)
+   que o corpo da página assume enquanto ela ocupa a tela; capa e "Saia" são palcos fixos. */
+:root{
+  --black:#000000;
+  --paper:#F6F3F0;
+  --bordo:#4A1725;
+  --bordo-ink:#6E2A3C;      /* bordô para texto pequeno sobre off-white */
+  --ash:#8E8682;            /* neutro quente puxado ao bordô */
+  --smoke:#141112;
+  --serif:"Bodoni Moda","Bodoni 72","Didot",Georgia,serif;
+  --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --accent:"Instrument Serif","Times New Roman",Georgia,serif;  /* 3ª voz: palavras de destaque dentro das frases */
+  --ground:var(--black);
+  --ink:var(--paper);
+  --mute:rgba(246,243,240,.56);
+  --line:rgba(246,243,240,.18);
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gutR:max(16px, env(safe-area-inset-right, 0px));
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --ts:0 2px 3px rgba(0,0,0,.35),0 10px 30px rgba(0,0,0,.45);
+  color-scheme:light;
+}
+body[data-tone="white"]{--ts:0 1px 1px rgba(0,0,0,.12),0 8px 22px rgba(0,0,0,.14);--ground:var(--paper);--ink:var(--black);--mute:rgba(0,0,0,.54);--line:rgba(0,0,0,.16)}
+body[data-tone="black"]{--ground:var(--black);--ink:var(--paper);--mute:rgba(246,243,240,.56);--line:rgba(246,243,240,.18)}
+body[data-tone="bordo"]{--ts:0 2px 3px rgba(20,4,9,.4),0 12px 32px rgba(20,4,9,.5);--ground:var(--bordo);--ink:var(--paper);--mute:rgba(246,243,240,.62);--line:rgba(246,243,240,.22)}
+
+html{scroll-behavior:smooth;overflow-x:clip}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:1.55;font-weight:400;
+  transition:background-color .8s var(--ease),color .8s var(--ease);
+  overflow-x:clip;-webkit-font-smoothing:antialiased;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ground);transition:background-color .8s var(--ease)}
+*,*::before,*::after{box-sizing:border-box}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+::selection{background:var(--bordo);color:var(--paper)}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:var(--gut);top:-60px;z-index:200;background:var(--paper);color:var(--black);padding:.6rem 1rem;font-size:.8rem}
+.skip:focus{top:12px}
+
+.wrap{padding-left:var(--gut);padding-right:var(--gutR)}
+.label{font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+.serif{font-family:var(--serif)}
+em,.it{font-style:italic}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0}
+
+/* ---------- Fotos (espaços reservados) ---------- */
+.ph{position:relative;overflow:hidden;margin:0;background:
+  radial-gradient(120% 90% at 38% 30%,#7d7773 0%,#3b3735 38%,#141112 78%,#050505 100%);isolation:isolate}
+.ph.v2{background:radial-gradient(90% 120% at 70% 25%,#a49d98 0%,#4a4542 34%,#171415 72%,#000 100%)}
+.ph.v3{background:linear-gradient(160deg,#cfc9c4 0%,#6f6965 42%,#1b1819 100%)}
+.ph.v4{background:radial-gradient(70% 60% at 50% 60%,#5c5653 0%,#221f1f 60%,#000 100%)}
+.ph.v5{background:linear-gradient(200deg,#2a2627 0%,#8b847f 55%,#e8e3de 100%)}
+.ph::before{content:"";position:absolute;inset:-50%;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.ph > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);transition:transform 1.2s var(--ease)}
+.ph:has(img) .ph-cap{display:none}
+.ph:has(img)::before{opacity:.28}
+.svc-photo .ph > img,.pp-photo .ph > img{transform:scale(var(--z,1.15))}
+.tile .ph > img{transition:transform 1s var(--ease),filter .8s}
+.tile:hover .ph > img{filter:grayscale(0) contrast(1.02)}
+.ph-cap{position:absolute;left:12px;right:12px;bottom:10px;z-index:2;display:flex;justify-content:space-between;gap:8px;
+  font-family:var(--sans);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,243,240,.78)}
+.ph-cap span:last-child{text-align:right;opacity:.7}
+.ph .zoom-in{position:absolute;inset:0}
+
+/* ---------- Navegação ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:50;padding-top:calc(env(safe-area-inset-top,0px) + 18px);padding-bottom:14px;
+  padding-left:var(--gut);padding-right:var(--gutR);display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+  color:var(--ink);transition:transform .5s var(--ease),color .8s var(--ease)}
+.nav.hide{transform:translateY(-110%)}
+.logo{text-decoration:none;display:inline-flex;align-items:baseline;gap:.18em;line-height:1}
+.logo .t{font-family:var(--sans);font-weight:400;font-size:.82rem;letter-spacing:.02em}
+.logo .b{font-family:var(--serif);font-weight:600;font-size:1.45rem;letter-spacing:.01em}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:clamp(14px,2.4vw,34px)}
+.nav ul a{text-decoration:none;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;position:relative;padding-block:4px}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.nav ul a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-btn{display:none;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.overlay{position:fixed;inset:0;z-index:70;background:var(--black);color:var(--paper);display:flex;flex-direction:column;justify-content:center;
+  padding:calc(env(safe-area-inset-top,0px) + 70px) var(--gutR) 40px var(--gut);transform:translateY(-100%);transition:transform .6s var(--ease);visibility:hidden}
+.overlay.open{transform:none;visibility:visible}
+.overlay a{display:flex;align-items:baseline;gap:14px;text-decoration:none;font-family:var(--sans);font-weight:500;letter-spacing:-.02em;font-size:clamp(1.9rem,8.4vw,3rem);line-height:1.2;border-bottom:1px solid rgba(246,243,240,.14);padding-block:6px}
+.overlay a small{font-family:var(--sans);font-size:.7rem;letter-spacing:.18em;color:rgba(246,243,240,.5)}
+.overlay .close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 20px);right:var(--gutR);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+
+/* Indicador de capítulo */
+.chapter{position:fixed;left:var(--gut);bottom:calc(env(safe-area-inset-bottom,0px) + 18px);z-index:40;display:flex;align-items:center;gap:12px;
+  color:var(--ink);opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s var(--ease),color .8s var(--ease);pointer-events:none}
+.chapter.on{opacity:1;transform:none}
+.chapter .bar{width:46px;height:1px;background:var(--line);position:relative;overflow:hidden}
+.chapter .bar i{position:absolute;inset:0;background:currentColor;transform-origin:left;transform:scaleX(var(--pg,0))}
+.chapter .txt{overflow:hidden;height:1.2em}
+.chapter .txt span{display:block;transition:transform .5s var(--ease)}
+
+/* CTA flutuante */
+.float-cta{position:fixed;z-index:45;right:var(--gutR);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);padding:11px 18px;border-radius:999px;text-decoration:none;
+  background:var(--bordo);color:var(--paper);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;box-shadow:0 0 0 1px rgba(246,243,240,.22);
+  opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .5s,transform .5s var(--ease)}
+.float-cta.on{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:560px){.float-cta .long{display:none}.float-cta{padding:10px 14px}}
+/* Cursor */
+.cursor{position:fixed;left:0;top:0;z-index:100;pointer-events:none;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;
+  background:var(--bordo);color:var(--paper);box-shadow:0 0 0 1px rgba(246,243,240,.28);display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:.82rem;
+  transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background-color .4s,color .4s,opacity .3s;opacity:0}
+.cursor span{font-family:var(--sans);font-size:.58rem;letter-spacing:.18em;font-weight:600;display:none}
+.cursor.on{opacity:1}
+.cursor.big{width:92px;height:92px;margin:-46px 0 0 -46px}
+.cursor.big b{display:none}.cursor.big span{display:block}
+.cursor.link{width:14px;height:14px;margin:-7px 0 0 -7px;background:var(--ink)}
+.cursor.link b{display:none}
+.has-cursor, .has-cursor a, .has-cursor button{cursor:none}
+
+/* ---------- 00 · CAPA ---------- */
+.pin{position:relative}
+.pin-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.hero{height:380vh;background:var(--black);color:var(--paper)}
+.hero .pin-stage{background:var(--black)}
+.hero-photo{position:absolute;inset:0;will-change:clip-path;clip-path:inset(46% 0 46% 0)}
+.hero-photo .inner{position:absolute;inset:-4%;transform:scale(1.15)}
+.hero-photo .inner.ph{position:absolute}
+.hero-word{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;line-height:.8;white-space:nowrap;will-change:transform;font-size:clamp(5.5rem,27.5vw,40rem)}
+.hero-word .the{position:absolute;left:.3em;top:-1.05em;font-family:var(--sans);font-weight:300;font-size:.17em;letter-spacing:.01em}
+.hero-word .bold{font-family:var(--serif);font-weight:500;font-size:1em;letter-spacing:-.025em;display:flex;font-variation-settings:"opsz" 96}
+.hero-word .ch{display:inline-block;overflow:hidden;padding-bottom:.04em}
+.hero-word .ch i{display:inline-block;font-style:normal;transform:translateY(105%);animation:rise 1.1s var(--ease) forwards}
+.hero-word .ch:nth-child(2) i{animation-delay:.07s}.hero-word .ch:nth-child(3) i{animation-delay:.14s}
+.hero-word .ch:nth-child(4) i{animation-delay:.21s}.hero-word .ch:nth-child(5) i{animation-delay:.32s}
+@keyframes rise{to{transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-top{position:absolute;z-index:4;top:calc(env(safe-area-inset-top,0px) + 78px);left:var(--gut);right:var(--gutR);display:flex;justify-content:space-between;gap:20px;
+  color:rgba(246,243,240,.62);animation:fadeUp 1s .5s var(--ease) both}
+.hero-tag{position:absolute;z-index:4;left:var(--gut);bottom:calc(env(safe-area-inset-bottom,0px) + 9vh);max-width:22ch;
+  font-family:var(--serif);font-size:clamp(1.15rem,1.8vw,1.7rem);line-height:1.2;animation:fadeUp 1s .7s var(--ease) both}
+.hero-tag em{color:var(--paper);font-family:var(--accent);font-size:1.1em}
+.hero-cue{position:absolute;z-index:4;right:var(--gutR);bottom:calc(env(safe-area-inset-bottom,0px) + 9vh);display:flex;align-items:center;gap:12px;
+  animation:fadeUp 1s .9s var(--ease) both}
+.hero-cue .stem{width:1px;height:46px;background:rgba(246,243,240,.3);position:relative;overflow:hidden}
+.hero-cue .stem::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--paper);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{to{top:110%}}
+.hero-line{position:absolute;z-index:4;left:var(--gut);bottom:11vh;width:min(50vw,15ch*3);font-family:var(--serif);
+  font-size:clamp(2.1rem,5.2vw,6rem);line-height:.98;letter-spacing:-.01em;opacity:0}
+.hero-line .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero-line .ln > span{display:block;will-change:transform}
+.hero-line .hl{background:linear-gradient(var(--bordo),var(--bordo)) 0 88%/var(--hlw,0%) 42% no-repeat;font-style:italic;padding-inline:.04em}
+.hero-cap{position:absolute;z-index:4;right:var(--gutR);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;color:rgba(246,243,240,.6);opacity:0}
+.hero-full{position:absolute;z-index:5;left:var(--gut);right:var(--gutR);top:calc(env(safe-area-inset-top,0px) + 84px);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;opacity:0}
+.hero-full p{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,3.4vw,3.2rem);line-height:1.05;max-width:16ch}
+.hero-wipe{position:absolute;inset:0;z-index:8;background:var(--paper);transform:translateY(101%)}
+
+/* ---------- 01 · CONTENTS ---------- */
+.contents{position:relative;z-index:2;margin-top:-28vh;background:var(--paper);color:var(--black);padding-block:clamp(110px,14vh,160px) clamp(90px,14vh,160px);box-shadow:0 -30px 60px -30px rgba(0,0,0,.5)}
+.rm .contents{margin-top:0}
+.contents-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-bottom:clamp(40px,7vh,80px)}
+.contents-head h2{font-family:var(--serif);font-size:clamp(4rem,13vw,13rem);line-height:.82;letter-spacing:-.035em}
+.contents-head h2 em{font-weight:400}
+.contents-head p{max-width:30ch;color:var(--mute);font-size:.95rem;text-align:right}
+.toc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.toc a{display:grid;grid-template-columns:4.5rem 1fr auto;align-items:baseline;gap:20px;padding-block:clamp(12px,1.6vw,20px);
+  border-bottom:1px solid var(--line);text-decoration:none;position:relative}
+.toc .n{font-size:.8rem;font-weight:500;letter-spacing:.14em;font-variant-numeric:tabular-nums;transition:color .2s}
+.toc .t{font-family:var(--serif);font-weight:500;font-variation-settings:"opsz" 28;font-size:clamp(1.9rem,4.4vw,4.2rem);line-height:1.04;letter-spacing:-.01em;transition:transform .6s var(--ease),font-style .2s}
+.toc .d{font-size:.9rem;line-height:1.45;color:rgba(0,0,0,.62);text-align:right;max-width:28ch;transition:opacity .4s}
+.toc a:hover .t,.toc a:focus-visible .t{transform:translateX(clamp(16px,3vw,48px));font-style:italic}
+.toc a:hover .n{color:var(--bordo-ink)}
+.toc:hover a:not(:hover) .t{opacity:.45}
+.toc .t{transition:transform .28s var(--ease),opacity .2s}
+
+  transform:translate(-50%,-50%) scale(.85);transition:opacity .35s,transform .5s var(--ease);will-change:left,top}
+
+/* ---------- 02 · MANIFESTO ---------- */
+.manifesto{padding-block:clamp(120px,20vh,220px)}
+.m-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.m-kicker{grid-column:1 / span 3;color:var(--mute)}
+.m-title{grid-column:1 / -1;font-family:var(--serif);font-size:clamp(3rem,9.6vw,10.5rem);line-height:.9;letter-spacing:-.03em;margin-block:28px clamp(60px,12vh,140px)}
+.m-title .r{display:block}
+.m-title .r2{padding-left:16vw;font-style:italic}
+.m-photo{grid-column:1 / span 4;aspect-ratio:3/4;align-self:start;position:sticky;top:14vh}
+.m-body{grid-column:6 / span 7;font-family:var(--sans);font-size:clamp(1.15rem,1.65vw,1.5rem);line-height:1.62;letter-spacing:-.005em;max-width:40ch}
+.m-body p + p{margin-top:1.1em}
+.m-body .w{opacity:.32;transition:opacity .5s}
+.m-body .w.lit{opacity:1}
+.m-body .hl{font-family:var(--accent);font-style:italic;font-size:1.24em;line-height:1.2}
+.m-body .hl{background:linear-gradient(var(--bordo),var(--bordo)) 0 90%/0% 42% no-repeat;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .8s var(--ease)}
+.m-body .hl.lit{background-size:100% 42%}
+.m-body .caps{font-family:var(--sans);font-style:normal;font-weight:700;font-size:.82em;letter-spacing:.08em}
+.m-quote{margin:clamp(110px,18vh,200px) 0 0 auto;font-family:var(--serif);font-size:clamp(2.4rem,6.4vw,7rem);line-height:.95;letter-spacing:-.03em;max-width:14ch;position:relative}
+.m-quote .q{display:block;height:.42em;line-height:.9;color:var(--mute)}
+.m-quote em{background:linear-gradient(var(--bordo),var(--bordo)) 0 88%/100% 36% no-repeat;padding-inline:.04em}
+.m-sign{grid-column:6 / span 7;margin-top:56px;display:flex;justify-content:space-between;color:var(--mute)}
+
+/* ---------- 03 · SAIA ---------- */
+.saia{height:290vh;background:var(--black);color:var(--paper)}
+.saia .pin-stage{background:var(--black)}
+.saia-run{position:absolute;z-index:6;top:calc(env(safe-area-inset-top,0px) + 86px);left:var(--gut);right:var(--gutR);display:flex;justify-content:space-between;gap:20px;
+  font-family:var(--sans);font-size:clamp(.72rem,.9vw,.82rem)}
+.saia-run .s span{opacity:.3;transition:opacity .4s}
+.saia-run .s span.on{opacity:1}
+.frag{position:absolute;inset:0;z-index:4;display:grid;place-items:center;text-align:center;padding-inline:var(--gut);opacity:0;will-change:transform,opacity}
+.frag h2{font-family:var(--serif);line-height:.86;letter-spacing:-.035em;text-transform:uppercase}
+.f1 h2{font-size:clamp(5rem,25vw,30rem);font-weight:500}
+.f2 h2,.f3 h2{font-size:clamp(2.6rem,10.5vw,13rem)}
+.f2 h2 .z{display:inline-block;font-style:italic;text-transform:none;font-size:1.25em;transform-origin:50% 70%}
+.f3 h2 .o{-webkit-text-stroke:1.5px var(--paper);color:transparent;font-style:italic;text-transform:none;font-size:1.2em}
+.saia-band{position:absolute;inset:0;z-index:5;background:var(--bordo);transform:translateX(-101%)}
+.f4{z-index:7}
+.f4 .small{display:block;font-family:var(--sans);font-weight:500;font-size:clamp(.8rem,1.2vw,1rem);letter-spacing:.32em;text-transform:uppercase;margin-bottom:2.4vh}
+.f4 h2{font-size:clamp(3.6rem,13vw,16rem);text-transform:none;font-style:italic}
+.f4 h2 span{display:block}
+.saia-num{position:absolute;z-index:6;left:var(--gut);bottom:calc(env(safe-area-inset-bottom,0px) + 56px);font-variant-numeric:tabular-nums;color:rgba(246,243,240,.6)}
+
+/* ---------- 04 · EFEITO BOLD ---------- */
+.efeito{padding-block:clamp(110px,16vh,180px)}
+.ef-head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end;margin-bottom:clamp(50px,9vh,100px)}
+.ef-head .label{grid-column:1 / span 12}
+.ef-head h2{grid-column:1 / span 8;font-family:var(--serif);font-size:clamp(3.4rem,11vw,12rem);line-height:.84;letter-spacing:-.035em}
+.ef-head h2 em{display:block;padding-left:.6em}
+.ef-head p{grid-column:9 / span 4;font-size:1.05rem;line-height:1.65;max-width:36ch}
+.ef-head p strong{font-family:var(--accent);font-style:italic;font-weight:400;font-size:1.8rem;display:block;line-height:1.1;margin-bottom:12px}
+.compare{position:relative;--x:80%;user-select:none;touch-action:pan-y;border:1px solid var(--line)}
+.cmp-layer{display:grid}
+.cmp-before{background:#E7E2DE;color:#57514E}
+.cmp-after{position:absolute;inset:0;background:var(--black);color:var(--paper);clip-path:inset(0 0 0 var(--x))}
+.cmp-tag{display:flex;justify-content:space-between;padding:18px clamp(16px,2.4vw,32px);border-bottom:1px solid currentColor;border-color:rgba(127,127,127,.25)}
+.cmp-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);align-items:center;gap:16px;height:clamp(76px,10.5vh,104px);
+  padding-inline:clamp(16px,2.4vw,32px);border-bottom:1px solid rgba(127,127,127,.22)}
+.cmp-row:last-child{border-bottom:0}
+.cmp-row .k{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
+.cmp-before .v{font-family:var(--sans);font-size:clamp(.95rem,1.3vw,1.15rem);color:#77706C}
+.cmp-before .v s{text-decoration-thickness:1px}
+.cmp-after .v{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,3vw,2.9rem);line-height:1}
+.cmp-handle{position:absolute;top:0;bottom:0;left:var(--x);z-index:3;width:0;outline:none}
+.cmp-handle::before{content:"";position:absolute;top:0;bottom:0;left:-.5px;width:1px;background:var(--bordo)}
+.cmp-handle .knob{position:absolute;top:50%;left:0;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--bordo);color:var(--paper);
+  display:grid;place-items:center;font-size:.6rem;letter-spacing:.18em;font-weight:600;cursor:grab;transition:transform .3s var(--ease)}
+.cmp-handle:focus-visible .knob{outline:2px solid var(--paper);outline-offset:3px}
+.compare.drag .knob{transform:translate(-50%,-50%) scale(.9);cursor:grabbing}
+.ef-foot{display:flex;justify-content:space-between;gap:20px;margin-top:22px;color:var(--mute)}
+
+/* ---------- 05 · BOLD INDEX ---------- */
+.index{padding-block:clamp(110px,16vh,180px)}
+.ix-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(40px,8vh,90px);flex-wrap:wrap}
+.ix-head h2{font-family:var(--serif);font-size:clamp(3rem,8.6vw,9rem);line-height:.86;letter-spacing:-.03em}
+.ix-head h2 small{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-style:normal;font-weight:500;margin-bottom:18px}
+.ix-head p{max-width:30ch;color:var(--mute)}
+.ix-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:start}
+.ix-words{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:.32em;row-gap:.04em;font-family:var(--serif);font-size:clamp(2.4rem,6.2vw,6.6rem);line-height:1.02;letter-spacing:-.025em}
+.ix-w{position:relative;text-align:left;transition:opacity .45s,color .45s,transform .6s var(--ease)}
+.ix-w sup{font-family:var(--sans);font-size:.16em;letter-spacing:.1em;vertical-align:top;position:relative;top:.9em;margin-left:.2em;font-weight:500}
+.ix-w .wd{transition:font-variation-settings .5s}
+.ix-words.has-active .ix-w:not(.active){opacity:.18}
+.ix-w.active{color:var(--bordo-ink)}
+.ix-w.active .wd{font-style:italic}
+.ix-w .sep{color:var(--mute)}
+.ix-panel{position:sticky;top:30vh;display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.ix-def .n{color:var(--bordo-ink)}
+.ix-def{border-top:1px solid var(--line);padding-top:18px}
+.ix-def h3{font-family:var(--serif);font-size:clamp(2.6rem,4.4vw,4.4rem);font-style:italic;line-height:.95;margin-block:10px 12px;letter-spacing:-.02em}
+.ix-c{font-family:var(--accent);font-style:italic;font-size:1.65rem;color:var(--bordo-ink);margin-bottom:12px}
+.ix-def p{max-width:40ch;font-size:1.05rem;line-height:1.65}
+.ix-inline{display:none}
+
+/* ---------- 06 · SERVIÇOS ---------- */
+.svc-intro{padding-block:clamp(110px,16vh,180px) clamp(70px,10vh,120px)}
+.svc-intro .label{color:var(--mute)}
+.svc-sentence{font-family:var(--serif);font-size:clamp(2.3rem,6.4vw,7rem);line-height:1.04;letter-spacing:-.025em;margin-block:28px 40px;max-width:16ch}
+.svc-word{display:inline-flex;align-items:center;gap:.12em;border-bottom:2px solid transparent;font-family:var(--accent);font-style:italic;font-size:1.08em;letter-spacing:-.01em;transition:color .3s}
+.svc-word.active{color:var(--bordo-ink)}
+.svc-desc{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:baseline;border-top:1px solid var(--line);padding-top:18px;max-width:900px}
+.svc-desc .n{font-variant-numeric:tabular-nums}
+.svc-desc a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;white-space:nowrap}
+
+.svc{padding-block:clamp(100px,15vh,170px);position:relative}
+.svc-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
+.svc-num{grid-column:1 / span 4;position:sticky;top:12vh;align-self:start;line-height:.78}
+.svc-num .big{display:block;font-family:var(--serif);font-size:clamp(7rem,20vw,22rem);letter-spacing:-.05em;-webkit-text-stroke:1.2px var(--ink);color:transparent;font-style:italic}
+.svc-num .nm{display:block;margin-top:18px;line-height:1.4}
+.svc-main{grid-column:5 / span 8;min-width:0}
+.svc-want{display:flex;flex-direction:column;gap:10px;font-family:var(--accent);font-style:italic;font-size:clamp(1.5rem,2.5vw,2.3rem);line-height:1.15;max-width:26ch;margin-bottom:clamp(36px,6vh,64px);padding-left:18px;border-left:1px solid var(--line)}
+.svc-want .label{font-family:var(--sans);font-style:normal;color:var(--mute)}
+.svc-note{margin-top:22px;max-width:62ch;font-size:.9rem;color:var(--mute);border-left:2px solid var(--bordo);padding-left:14px}
+.svc-note b{color:var(--ink);font-weight:600}
+.s03 .svc-note{border-color:var(--paper)}
+.svc-cta{display:inline-flex;align-items:baseline;gap:16px;margin-top:clamp(50px,8vh,90px);text-decoration:none;font-family:var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:clamp(.82rem,1vw,.95rem);line-height:1.4;
+  background:linear-gradient(currentColor,currentColor) 0 100%/0% 1px no-repeat;transition:background-size .6s var(--ease);padding-bottom:6px}
+.svc-cta:hover{background-size:100% 1px}
+.svc-cta .arr{font-style:normal;transition:transform .5s var(--ease)}
+.svc-cta:hover .arr{transform:translateX(10px)}
+.svc h3{font-family:var(--serif);font-size:clamp(2.6rem,6.4vw,7rem);line-height:.9;letter-spacing:-.03em}
+.svc h3 em{display:block}
+.svc-lead{font-family:var(--sans);font-size:clamp(1.05rem,1.3vw,1.22rem);line-height:1.65;max-width:52ch;margin-top:32px}
+.svc-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.svc-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(50px,8vh,90px);align-items:start}
+.svc-photo{aspect-ratio:4/5;position:relative}
+.svc-photo .ph{position:absolute;inset:0}
+.svc-photo .ph .zoom-in{transform:scale(var(--z,1.15))}
+.obj h4{margin:0 0 14px;font-weight:500}
+.obj ol{list-style:none;margin:0;padding:0;counter-reset:o}
+.obj li{counter-increment:o;display:grid;grid-template-columns:2.4rem 1fr;gap:8px;padding-block:12px;border-top:1px solid var(--line);font-size:1rem}
+.obj li::before{content:counter(o,decimal-leading-zero);font-size:.72rem;letter-spacing:.12em;padding-top:.3em;color:var(--mute)}
+
+/* infográfico */
+.stats{margin-top:clamp(60px,9vh,110px);border-top:1px solid var(--line)}
+.stat-hero{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,3vw,40px);align-items:end;padding-block:24px 28px;border-bottom:1px solid var(--line)}
+.num{font-family:var(--serif);font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.04em;line-height:.8}
+.stat-hero .num{font-size:clamp(7rem,17vw,17rem)}
+.stat-hero .cap{font-family:var(--sans);font-weight:500;letter-spacing:-.01em;font-size:clamp(1.25rem,2vw,1.9rem);line-height:1.1;padding-bottom:.3em}
+.stat-hero .cap small{display:block;font-family:var(--sans);font-style:normal;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;margin-top:12px;color:var(--mute)}
+.stat-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.stat-row > div{padding:22px 0 22px;border-bottom:1px solid var(--line)}
+.stat-row > div + div{padding-left:clamp(12px,2vw,28px);border-left:1px solid var(--line)}
+.stat-row .num{font-size:clamp(3.6rem,7vw,7rem)}
+.stat-row .k{display:block;margin-top:12px}
+.stat-row .s{display:block;color:var(--mute);font-size:.85rem;margin-top:4px}
+.extras{margin-top:36px}
+.extras summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding-block:16px;border-bottom:1px solid var(--line)}
+.extras summary::-webkit-details-marker{display:none}
+.extras summary .pm{font-family:var(--serif);font-size:1.6rem;line-height:1;transition:transform .4s var(--ease)}
+.extras[open] summary .pm{transform:rotate(45deg)}
+.extras ul{list-style:none;margin:0;padding:0;columns:2;column-gap:40px}
+.extras li{break-inside:avoid;padding-block:12px;border-bottom:1px solid var(--line);display:flex;gap:12px}
+.extras li::before{content:"→";color:var(--mute)}
+
+/* 02 – cronograma */
+.s02 .svc-num .big{-webkit-text-stroke-color:var(--ink)}
+.quote-feed{font-family:var(--serif);font-size:clamp(2rem,4.6vw,4.8rem);line-height:1;letter-spacing:-.02em;margin-top:40px;max-width:18ch}
+.quote-feed s{text-decoration-color:var(--bordo-ink);text-decoration-thickness:.06em}
+.quote-feed em{color:var(--bordo-ink);font-family:var(--accent);font-size:1.08em}
+.cal{margin-top:clamp(50px,8vh,90px);border:1px solid var(--line)}
+.cal-head{display:flex;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line)}
+.cal-grid{display:grid;grid-template-columns:7rem repeat(3,minmax(0,1fr))}
+.cal-grid > *{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:14px 16px;min-height:76px}
+.cal-grid > *:nth-child(4n){border-right:0}
+.cal-grid .wk{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center}
+.cal-grid .hd{min-height:0;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.cell{position:relative;overflow:hidden}
+.cell::before{content:"";position:absolute;inset:0;background:var(--black);transform:scaleY(0);transform-origin:bottom;transition:transform .7s var(--ease);transition-delay:calc(var(--i)*70ms)}
+.cell span{position:relative;z-index:1;font-family:var(--sans);font-weight:500;font-size:1rem;transition:color .4s;transition-delay:calc(var(--i)*70ms + 200ms)}
+.cell small{position:relative;z-index:1;display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-top:4px;transition:color .4s;transition-delay:calc(var(--i)*70ms + 200ms)}
+.cal.filled .cell::before{transform:scaleY(1)}
+.cal.filled .cell span{color:var(--paper)}
+.cal.filled .cell small{color:rgba(246,243,240,.6)}
+.cal.filled .cell.r::before{background:var(--bordo)}
+
+/* 02 – conteúdo: formatos */
+.fmt{margin-top:clamp(50px,8vh,90px)}
+.fmt h4{margin:0 0 14px;font-weight:500}
+.fmt-list{list-style:none;margin:0;padding:0;counter-reset:f;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.fmt-list li{counter-increment:f;display:flex;flex-direction:column;gap:8px;padding:22px 20px 26px 0;border-bottom:1px solid var(--line)}
+.fmt-list li::before{content:counter(f,decimal-leading-zero);font-size:.72rem;letter-spacing:.14em;color:var(--mute)}
+.fmt-list b{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,2.3vw,2.2rem);line-height:1.05;letter-spacing:-.015em;transition:transform .5s var(--ease)}
+.fmt-list span{font-size:.95rem;line-height:1.55;color:var(--mute);max-width:30ch}
+.fmt-list li:hover b{transform:translateX(8px);font-style:italic}
+@media (max-width:860px){.fmt-list{grid-template-columns:minmax(0,1fr)}.fmt-list li{padding-right:0}}
+
+/* 03 – design */
+.dz{margin-top:clamp(50px,8vh,90px);display:flex;flex-direction:column;gap:clamp(36px,6vh,64px)}
+.dz-head{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:14px}
+.dz-head .dz-hint{color:var(--mute)}
+.dz-block{margin:0;display:flex;flex-direction:column;gap:12px}
+.dz-block > figcaption{color:var(--mute)}
+.dz-block img{display:block;width:100%;height:auto;border-radius:6px;box-shadow:0 24px 50px -24px rgba(0,0,0,.55);transition:transform .6s var(--ease)}
+.dz-car{list-style:none;margin:0;padding:0 0 0 0;display:flex;align-items:flex-start;--w:clamp(130px,15vw,230px)}
+.dz-slide{flex:none;width:var(--w);position:relative;margin-left:calc(var(--w) * -.62);transform:rotate(calc((var(--k) - 2.5) * 1.6deg));transition:margin .7s var(--ease),transform .7s var(--ease);z-index:calc(6 - var(--k))}
+.dz-slide:first-child{margin-left:0}
+.dz-slide span{position:absolute;left:8px;bottom:8px;font-size:.6rem;letter-spacing:.14em;color:var(--paper);background:rgba(0,0,0,.4);padding:2px 6px;border-radius:999px;opacity:0;transition:opacity .4s}
+.dz-car:hover .dz-slide,.dz-car.open .dz-slide{margin-left:12px;transform:none;width:calc((100% - 60px) / 6)}
+.dz-slide{transition:margin .7s var(--ease),transform .7s var(--ease),width .7s var(--ease)}
+.dz-car:hover .dz-slide:first-child,.dz-car.open .dz-slide:first-child{margin-left:0}
+.dz-car:hover .dz-slide span,.dz-car.open .dz-slide span{opacity:1}
+.dz-posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,.8fr);gap:clamp(12px,2vw,28px);align-items:end}
+.dz-posts .dz-block:hover img{transform:translateY(-6px)}
+
+/* ---------- 07 · ANTES DE SER BOLD ---------- */
+.antes{padding-block:clamp(110px,16vh,180px) clamp(140px,22vh,240px)}
+.antes-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(24px,4vw,64px)}
+.antes-k{position:sticky;top:20vh;align-self:start}
+.antes-k h2{font-family:var(--serif);font-style:italic;font-size:clamp(2.2rem,4.2vw,4.2rem);line-height:.95}
+.antes-k p{margin-top:16px;color:var(--mute);max-width:24ch}
+.strikes{display:flex;flex-direction:column;gap:clamp(70px,16vh,170px);padding-top:10vh}
+.strike{font-family:var(--serif);font-size:clamp(2.2rem,5.4vw,5.8rem);line-height:.98;letter-spacing:-.025em;position:relative;transition:opacity .7s,color .7s}
+.strike .tx{background:linear-gradient(var(--bordo),var(--bordo)) 0 56%/0% .09em no-repeat;transition:background-size .9s var(--ease);
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+.strike.on .tx{background-size:100% .09em}
+.strike.on{color:var(--mute)}
+.strike.final{font-size:clamp(3rem,8.8vw,9.6rem);line-height:.88;font-style:italic;color:var(--ink);opacity:.25;transform:translateY(30px);transition:opacity .9s,transform 1.1s var(--ease)}
+.strike.final small{display:block;font-family:var(--sans);font-style:normal;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:22px;font-weight:500}
+.strike.final.on{opacity:1;transform:none;color:var(--ink)}
+.strike.final .b{background:linear-gradient(var(--bordo),var(--bordo)) 0 85%/0% 40% no-repeat;transition:background-size 1s .3s var(--ease)}
+.strike.final.on .b{background-size:100% 40%}
+
+/* ---------- 08 · SEM FÓRMULAS ---------- */
+.sem{padding-block:clamp(160px,28vh,300px)}
+.sem-lines{display:flex;flex-direction:column;gap:.06em;font-family:var(--serif);font-size:clamp(2.6rem,7.6vw,8.6rem);line-height:.98;letter-spacing:-.03em}
+.sem-lines div{will-change:transform;white-space:nowrap}
+.sem-lines div:nth-child(2){padding-left:12vw}
+.sem-lines div:nth-child(3){padding-left:4vw}
+.sem-lines b{font-weight:400;font-style:italic;color:var(--bordo-ink)}
+.sem-after{display:flex;justify-content:flex-end;margin-top:clamp(70px,14vh,160px)}
+.feed-wrap{margin-top:clamp(80px,14vh,160px);display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);align-items:end}
+.feed{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px}
+.feed i{aspect-ratio:4/5;background:#DAD4CF;transition:background-color .8s var(--ease),transform .8s var(--ease),opacity .8s;transition-delay:calc(var(--d)*18ms)}
+.feed.in i{background:#E8E3DF}
+.feed i.me{background:#DAD4CF;display:grid;place-items:center;font-family:var(--serif);font-style:normal;font-weight:600;color:transparent;font-size:clamp(.8rem,1.6vw,1.4rem)}
+.feed.in i.me{background:var(--bordo);color:var(--paper);transform:scale(1.18);transition-delay:.7s;box-shadow:0 18px 40px -18px rgba(74,23,37,.7)}
+.feed-cap{display:flex;justify-content:space-between;font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,2.2rem);border-top:1px solid var(--line);padding-top:14px}
+.feed-cap em{color:var(--bordo-ink);font-family:var(--accent);font-size:1.1em}
+@media (max-width:860px){.feed-wrap{grid-template-columns:minmax(0,1fr)}.feed{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.sem-after p{max-width:22ch;font-size:1.05rem;border-top:1px solid var(--line);padding-top:16px}
+
+/* ---------- 09 · ARCHIVE ---------- */
+.archive{padding-block:clamp(110px,16vh,180px);overflow:hidden}
+.ar-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;margin-bottom:clamp(40px,7vh,80px)}
+.ar-head h2{font-family:var(--serif);font-size:clamp(3.4rem,12vw,13rem);line-height:.82;letter-spacing:-.04em}
+.ar-head h2 em{font-weight:400}
+.ar-head p{max-width:30ch;color:var(--mute);text-align:right}
+.wall{display:flex;flex-direction:column;gap:clamp(12px,1.6vw,22px)}
+.wall-row{display:flex;gap:clamp(12px,1.6vw,22px);align-items:flex-end;width:max-content;will-change:transform}
+.wall-row .tile{position:relative;flex:none;overflow:hidden}
+.tile .ph{position:absolute;inset:0;transition:transform 1s var(--ease)}
+.tile.work img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.tile.work:hover img{transform:scale(1.04)}
+.tile{border-radius:4px}
+.tile:hover .ph{transform:scale(1.05)}
+.tile .ov{position:absolute;inset:auto 0 0 0;z-index:3;padding:14px;display:flex;justify-content:space-between;align-items:end;color:var(--paper);
+  transform:translateY(100%);transition:transform .6s var(--ease);background:linear-gradient(transparent,rgba(0,0,0,.7))}
+.tile:hover .ov,.tile:focus-within .ov{transform:none}
+.tile .ov b{font-family:var(--sans);font-weight:500;font-size:.95rem}
+.ar-note{margin-top:28px;display:flex;justify-content:space-between;gap:20px;color:var(--mute)}
+
+/* ---------- 10 · VOZES ---------- */
+.vozes{padding-block:clamp(110px,16vh,180px)}
+.vz-head h2{font-family:var(--serif);font-size:clamp(2.6rem,7vw,7.6rem);line-height:.9;letter-spacing:-.03em;max-width:12ch}
+.vz-head h2 em{color:var(--bordo-ink)}
+.vz-spread{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:clamp(60px,10vh,120px)}
+.vz{margin:0;position:relative;border-top:1px solid var(--line);padding-top:24px}
+.vz .q{font-family:var(--serif);font-size:clamp(5rem,9vw,9rem);line-height:.5;height:.42em;display:block;color:var(--bordo-ink)}
+.vz blockquote{margin:16px 0 0;font-family:var(--sans);line-height:1.55}
+.vz .slot{color:var(--mute);font-style:italic}
+.vz figcaption{margin-top:22px;display:flex;flex-direction:column;gap:2px;font-size:.9rem}
+.vz figcaption span:first-child{font-weight:600;letter-spacing:.02em}
+.vz figcaption span:last-child{color:var(--mute)}
+.vz blockquote p + p{margin-top:.7em}
+.vz blockquote em{font-family:var(--accent);font-style:italic;color:var(--bordo-ink);font-size:1.12em}
+.stars{position:absolute;top:24px;right:0;color:var(--bordo-ink);letter-spacing:.18em;font-size:.95rem}
+.vz.a{grid-column:1 / span 7}.vz.a blockquote{font-size:clamp(1.2rem,1.7vw,1.5rem)}
+.vz.b{grid-column:9 / span 4;margin-top:22vh}.vz.b blockquote{font-size:clamp(1.05rem,1.3vw,1.2rem)}
+.vz.c{grid-column:3 / span 5;margin-top:6vh}.vz.c blockquote{font-size:clamp(1.05rem,1.3vw,1.2rem)}
+.prints{margin-top:clamp(80px,14vh,160px);border-top:1px solid var(--line);padding-top:20px}
+.prints-k{color:var(--mute);margin-bottom:28px}
+.prints-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,5fr);gap:clamp(20px,5vw,90px);align-items:start;max-width:1100px;margin-inline:auto;padding-inline:clamp(8px,2vw,24px)}
+.print{margin:0;position:relative;transition:transform .7s var(--ease)}
+.print img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.print:nth-child(1){transform:rotate(-1.5deg);max-width:520px;grid-row:span 2}
+.print:nth-child(2){transform:rotate(2deg);margin-top:10vh}
+.print:nth-child(3){transform:rotate(-1deg);margin-top:4vh;max-width:460px;justify-self:end}
+.print:nth-child(3) img{border:1px solid rgba(0,0,0,.08)}
+.print.rv.in:nth-child(1){transform:rotate(-1.5deg)}
+.print.rv.in:nth-child(2){transform:rotate(2deg)}
+.print.rv.in:nth-child(3){transform:rotate(-1deg)}
+.print:hover,.print.rv.in:hover{transform:rotate(0) scale(1.02)}
+@media (max-width:860px){.prints-row{grid-template-columns:minmax(0,1fr)}.print:nth-child(1){grid-row:auto}.print:nth-child(2),.print:nth-child(3){margin-top:0}.print:nth-child(3){justify-self:stretch}}
+.vz-tag{top:14px;right:14px}
+.pr-inner{font-family:var(--sans);color:var(--mute);text-align:center;font-size:.9rem;line-height:1.5;max-width:16ch}
+.vz-tag{position:absolute;top:24px;right:0;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--line);padding:4px 8px;border-radius:999px;color:var(--mute)}
+
+/* ---------- 11 · PESSOAS ---------- */
+.pp-open{height:230vh}
+.pp-open .pin-stage{display:grid;align-items:end;justify-items:start;padding:0 var(--gutR) calc(env(safe-area-inset-bottom,0px) + 9vh) var(--gut)}
+.pp-photo{position:absolute;inset:0;clip-path:inset(22% 32% 22% 32%);will-change:clip-path}
+.pp-photo .ph{position:absolute;inset:0}
+.pp-photo::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.62) 100%);pointer-events:none}
+.pp-photo .zoom-in{transform:scale(var(--z,1.2))}
+.pp-title{position:relative;z-index:3;text-align:left;font-family:var(--serif);color:var(--paper);line-height:.84;letter-spacing:-.035em;pointer-events:none}
+.pp-title span{display:block;font-size:clamp(3.2rem,11vw,12rem)}
+.pp-cue{position:absolute;z-index:3;right:var(--gutR);bottom:calc(env(safe-area-inset-bottom,0px) + 9vh);display:flex;flex-direction:column;align-items:flex-end;gap:12px;color:var(--paper)}
+.pp-cue .stem{width:1px;height:56px;background:rgba(246,243,240,.3);position:relative;overflow:hidden;margin-right:2px}
+.pp-cue .stem::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--paper);animation:drip 2.2s var(--ease) infinite}
+@media (max-width:860px){.pp-cue{bottom:auto;top:calc(env(safe-area-inset-top,0px) + 80px)}}
+.pp-title span:nth-child(2){font-style:italic;font-size:clamp(2rem,6vw,6.4rem);letter-spacing:-.01em}
+.people{padding-block:clamp(80px,12vh,140px) clamp(110px,16vh,180px)}
+.mast-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:end;margin-bottom:clamp(40px,7vh,80px)}
+.mast-head h2{font-family:var(--serif);font-size:clamp(2.6rem,6vw,6rem);line-height:.9;letter-spacing:-.03em}
+.mast-head p{max-width:40ch;justify-self:end;color:var(--mute)}
+.mast{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.mast-row{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:20px;align-items:baseline;width:100%;text-align:left;padding-block:clamp(14px,2vw,24px);
+  border-bottom:1px solid var(--line)}
+.mast-row .area{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.mast-row .role{font-family:var(--serif);font-size:clamp(1.6rem,3.4vw,3.2rem);line-height:1;letter-spacing:-.015em;transition:transform .6s var(--ease)}
+.mast-row:hover .role{transform:translateX(18px);font-style:italic}
+
+/* ---------- 12 · CTA ---------- */
+.cta{min-height:100vh;min-height:100svh;padding-block:clamp(130px,20vh,220px) 80px;display:flex;flex-direction:column;justify-content:center}
+.cta .label{color:var(--mute)}
+.cta h2{font-family:var(--serif);font-size:clamp(3rem,8.4vw,9.4rem);line-height:.9;letter-spacing:-.035em;margin-block:28px clamp(50px,9vh,100px)}
+.cta h2 .l2{display:block;padding-left:8vw;color:var(--mute)}
+.cta h2 .l3{display:block;font-style:italic}
+.cta h2 .l3 b{font-weight:400;background:linear-gradient(var(--bordo),var(--bordo)) 0 88%/100% 38% no-repeat}
+.cta-row{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.btn-bold{display:inline-flex;align-items:center;gap:22px;text-decoration:none;background:var(--bordo);color:var(--paper);border-radius:999px;
+  padding:clamp(22px,2.6vw,34px) clamp(30px,4vw,56px);font-size:clamp(.82rem,1.1vw,1rem);letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+  will-change:transform;transition:background-color .4s}
+.btn-bold .arr{display:inline-block;transition:transform .5s var(--ease);font-size:1.3em;letter-spacing:0}
+.btn-bold:hover .arr{transform:translateX(8px)}
+.btn-bold:hover{background:#5a1d2e}
+.cta-aside{max-width:30ch;color:var(--mute)}
+.cta-side{display:flex;align-items:flex-end;gap:24px}
+.cta-photo{width:clamp(140px,16vw,240px);aspect-ratio:3/4;flex:none;transform:rotate(-3deg);transition:transform .8s var(--ease)}
+.cta-side:hover .cta-photo{transform:rotate(0) scale(1.03)}
+@media (max-width:860px){.cta-side{flex-direction:column;align-items:flex-start}.cta-photo{width:58vw}}
+
+/* ---------- FOOTER ---------- */
+.foot{padding-top:60px;overflow:hidden;border-top:1px solid var(--line)}
+.foot-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-bottom:40px}
+.foot-grid h4{margin:0 0 10px;font-weight:500;color:var(--mute)}
+.foot-grid a{text-decoration:none;border-bottom:1px solid var(--line)}
+.foot-grid a:hover{border-color:currentColor}
+.foot-grid .tbd{color:var(--mute)}
+.foot-sign{display:flex;justify-content:space-between;gap:20px;padding-block:18px;border-top:1px solid var(--line);color:var(--mute)}
+.foot-mark{font-family:var(--serif);font-weight:500;font-size:clamp(5rem,27vw,36rem);line-height:.72;letter-spacing:-.04em;margin-bottom:-.12em;white-space:nowrap;
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+.foot-mark .the{font-family:var(--sans);font-weight:300;font-size:.2em;letter-spacing:0;vertical-align:top;margin-right:.1em}
+
+/* ---------- sombra leve na tipografia editorial ---------- */
+.logo .b,.hero-word,.hero-line,.hero-tag,.hero-full p,.contents-head h2,.toc .t,.m-title,.m-quote,.m-body .hl,.frag h2,
+.ef-head h2,.ef-head p strong,.cmp-after .v,.ix-head h2,.ix-words,.ix-def h3,.ix-c,.svc-sentence,.svc h3,.svc-want,.num,
+.quote-feed,.antes-k h2,.strike,.sem-lines,.feed-cap,.ar-head h2,.vz-head h2,.pp-title,.mast-head h2,
+.mast-row .role,.cta h2,.foot-mark{text-shadow:var(--ts)}
+.contents .contents-head h2{text-shadow:0 1px 1px rgba(0,0,0,.12),0 8px 22px rgba(0,0,0,.14)}
+.contents .toc .t{text-shadow:0 1px 1px rgba(0,0,0,.1),0 4px 12px rgba(0,0,0,.08)}
+.svc-num .big,.f3 .o,.ix-head h2 small{text-shadow:none}
+
+/* ---------- reveal genérico ---------- */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform 1.1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+
+/* ---------- Responsivo ---------- */
+@media (max-width:1024px){
+  .m-photo{grid-column:1 / span 5}
+  .m-body{grid-column:6 / span 7}
+  .svc-num{grid-column:1 / span 3}
+  .svc-main{grid-column:4 / span 9}
+}
+@media (max-width:860px){
+  .nav ul{display:none}
+  .nav-btn{display:block}
+  .hero-top .hide-m{display:none}
+  .hero-line{left:var(--gut);right:var(--gutR);width:auto;bottom:auto;top:32svh;font-size:clamp(2rem,9vw,4rem)}
+  .hero-tag{bottom:calc(env(safe-area-inset-bottom,0px) + 15svh);font-size:1.25rem}
+  .hero-cue{left:var(--gut);right:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 6svh)}
+  .hero-full{flex-direction:column;align-items:flex-start}
+  .contents-head{grid-template-columns:1fr}
+  .contents-head p{text-align:left}
+  .toc a{grid-template-columns:2.6rem 1fr;gap:12px}
+  .toc .d{display:none}
+  .toc a:hover .t{transform:none}
+  .m-kicker{grid-column:1 / -1}
+  .m-title .r2{padding-left:8vw}
+  .m-photo{position:relative;top:0;grid-column:1 / span 8;margin-bottom:24px}
+  .m-body,.m-sign{grid-column:1 / -1}
+  .saia-run{flex-direction:column;gap:4px}
+  .ef-head h2,.ef-head p{grid-column:1 / -1}
+  .ef-head h2 em{padding-left:.3em}
+  .cmp-row{grid-template-columns:minmax(0,1fr);gap:4px;align-content:center;height:96px}
+  .cmp-handle .knob{width:54px;height:54px}
+  .ef-foot{flex-direction:column;gap:6px}
+  .ix-grid{grid-template-columns:minmax(0,1fr)}
+  .ix-panel{display:none}
+  .ix-words{flex-direction:column;align-items:flex-start;font-size:clamp(2.4rem,11vw,4rem)}
+  .ix-w .sep{display:none}
+  .ix-inline{display:block;font-family:var(--sans);font-size:.95rem;line-height:1.5;letter-spacing:0;max-height:0;overflow:hidden;transition:max-height .6s var(--ease);color:var(--ink)}
+  .ix-inline p{padding-block:8px 18px;max-width:36ch}
+  .ix-w.active + .ix-inline{max-height:520px}
+  .ix-words.has-active .ix-w:not(.active){opacity:.45}
+  .svc-desc{grid-template-columns:auto 1fr;}
+  .svc-desc a{grid-column:1 / -1;justify-self:start}
+  .svc-num{position:relative;top:0;grid-column:1 / -1}
+  .svc-num .big{font-size:clamp(6rem,34vw,12rem)}
+  .svc-main{grid-column:1 / -1}
+  .svc-split{grid-template-columns:minmax(0,1fr)}
+  .stat-row{grid-template-columns:minmax(0,1fr)}
+  .stat-row > div + div{padding-left:0;border-left:0}
+  .stat-row > div{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:end}
+  .stat-row .k{margin-top:0}
+  .extras ul{columns:1}
+  .cal-grid{grid-template-columns:3.6rem repeat(3,minmax(0,1fr))}
+  .cal-grid > *{padding:10px 8px;min-height:64px}
+  .cell span{font-size:1rem}
+  .cell small{font-size:.58rem;letter-spacing:.06em}
+  .cal-grid .hd{font-size:.56rem;letter-spacing:.08em}
+  .dz-posts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}
+  .dz-car{--w:min(44vw,200px);overflow-x:auto;padding:6px 4px 14px;scroll-snap-type:x mandatory}
+  .dz-slide{scroll-snap-align:start}
+  .dz-car:hover .dz-slide,.dz-car.open .dz-slide{width:var(--w)}
+  .dz-hint{display:none}
+  .antes-grid{grid-template-columns:minmax(0,1fr)}
+  .antes-k{position:relative;top:0}
+  .strikes{padding-top:4vh}
+  .sem-lines div{white-space:normal}
+  .sem-lines div:nth-child(2){padding-left:6vw}
+  .sem-after{justify-content:flex-start}
+  .ar-head{grid-template-columns:1fr}
+  .ar-head p{text-align:left}
+  .ar-note{flex-direction:column}
+  .vz.a,.vz.b,.vz.c{grid-column:1 / -1;margin-top:0}
+  .vz-spread{row-gap:48px}
+  .mast-head{grid-template-columns:1fr}
+  .mast-head p{justify-self:start}
+  .mast-row{grid-template-columns:minmax(0,1fr);row-gap:6px}
+  .mast-row .area{grid-column:1 / -1}
+  .mast-row:hover .role{transform:none;font-style:normal}
+  .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}
+  .foot-sign{flex-direction:column;gap:4px}
+  .cta h2 .l2{padding-left:0}
+  .chapter{bottom:calc(env(safe-area-inset-bottom,0px) + 12px)}
+}
+
+/* ---------- Movimento reduzido ---------- */
+.rm .hero,.rm .saia,.rm .pp-open{height:auto}
+.rm .pin-stage{position:relative;height:auto;min-height:100svh}
+.rm .hero-photo{clip-path:inset(0 0 0 58%);opacity:.6}
+.rm .hero-line{display:none}
+.rm .hero-word .ch i,.rm .hero-top,.rm .hero-tag,.rm .hero-cue{animation:none;transform:none}
+.rm .saia .pin-stage{display:flex;flex-direction:column;justify-content:center;gap:4vh;padding-block:140px 80px}
+.rm .frag{position:relative;inset:auto;opacity:1}
+.rm .saia-band{display:none}
+.rm .f4{background:var(--bordo);padding-block:6vh}
+.rm .saia-run,.rm .saia-num{position:relative;top:auto;bottom:auto}
+.rm .pp-photo{clip-path:none}
+.rm .pp-open .pin-stage{min-height:80svh}
+.rm .m-body .w{opacity:1}
+.rm .m-body .hl{background-size:100% 42%}
+.rm .rv{opacity:1;transform:none}
+.rm .strike .tx{background-size:100% .09em}
+.rm .strike.final{opacity:1;transform:none}
+.rm .strike.final .b{background-size:100% 40%}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-delay:0s!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+
+<a class="skip" href="#manifesto">Pular para o conteúdo</a>
+
+<nav class="nav" id="nav" aria-label="Principal">
+  <a class="logo" href="#top" aria-label="The Bold, voltar ao início"><span class="t">the</span><span class="b">BOLD.</span></a>
+  <ul>
+    <li><a href="#manifesto">Manifesto</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#archive">Portfólio</a></li>
+    <li><a href="#pessoas">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-btn" id="navBtn" aria-expanded="false" aria-controls="overlay">Índice +</button>
+</nav>
+
+<div class="overlay" id="overlay" aria-label="Índice" hidden>
+  <button class="close" id="navClose">Fechar ×</button>
+  <a href="#manifesto"><small>01</small>Manifesto</a>
+  <a href="#efeito"><small>03</small>O Efeito Bold</a>
+  <a href="#servicos"><small>05</small>Serviços</a>
+  <a href="#archive"><small>07</small>Portfólio</a>
+  <a href="#pessoas"><small>09</small>Sobre</a>
+  <a href="#contato"><small>10</small>Contato</a>
+</div>
+
+<div class="chapter label" id="chapter" aria-hidden="true"><span class="bar"><i></i></span><span class="txt"><span id="chapterTxt">01 / Manifesto</span></span></div>
+<a class="float-cta js-wa" id="floatCta" href="#contato" data-cursor="enter"><span class="long">Viver o </span>Efeito Bold <span aria-hidden="true">→</span></a>
+<div class="cursor" id="cursor" aria-hidden="true"><b>B.</b><span id="cursorTxt">VIEW</span></div>
+
+<main>
+
+<!-- 00 · CAPA -->
+<section class="hero pin" id="top" data-tone="black" data-chapter="">
+  <div class="pin-stage">
+    <div class="hero-photo" id="heroPhoto" data-cursor="view">
+      <figure class="ph v2 inner" id="heroPhotoInner" data-photo="vogue" data-pos="50% 38%" data-eager data-alt="Look em preto e branco: blazer risca de giz, saia preta e uma revista na mão"><figcaption class="ph-cap"><span>Foto 01 · Capa</span><span>Retrato P&amp;B, vertical</span></figcaption></figure>
+    </div>
+
+    <div class="hero-top label">
+      <span>Edição Nº 01 · Efeito Bold</span>
+      <span class="hide-m">Estratégia · Conteúdo · Posicionamento</span>
+      <span>Agência de marketing</span>
+    </div>
+
+    <h1 class="hero-word" id="heroWord" aria-label="The Bold.">
+      <span class="the" aria-hidden="true">the</span>
+      <span class="bold" aria-hidden="true"><span class="ch"><i>B</i></span><span class="ch"><i>O</i></span><span class="ch"><i>L</i></span><span class="ch"><i>D</i></span><span class="ch"><i>.</i></span></span>
+    </h1>
+
+    <p class="hero-tag" id="heroTag">Marcas que não precisam gritar <em>para serem percebidas.</em></p>
+    <div class="hero-cue label" id="heroCue"><span class="stem"></span><span>Role para entrar</span></div>
+
+    <p class="hero-line" id="hlA"><span class="ln"><span>Você não precisa</span></span><span class="ln"><span>de uma agência.</span></span></p>
+    <p class="hero-line" id="hlB"><span class="ln"><span>Precisa de uma marca</span></span><span class="ln"><span>que saiba <span class="hl" id="hlMark">se posicionar.</span></span></span></p>
+    <span class="hero-cap label" id="heroCap">Foto 01 — capa da edição</span>
+
+    <div class="hero-full" id="heroFull"><p>Bem-vinda à edição Nº 01.</p><span class="label">Efeito Bold — se transforme em uma marca audaciosa</span></div>
+  </div>
+</section>
+
+<!-- 01 · CONTENTS -->
+<section class="contents wrap" id="contents" data-tone="white" data-chapter="00 / Contents">
+  <div class="contents-head">
+    <h2 class="rv">Con<em>tents</em></h2>
+    <p class="rv">A The Bold desenvolve estratégias de conteúdo personalizadas para marcas que querem se posicionar com mais personalidade, autoridade e diferenciação. Esta edição conta como, em dez capítulos.</p>
+  </div>
+  <ol class="toc" id="toc">
+    <li><a href="#manifesto"><span class="n">01</span><span class="t">Manifesto</span><span class="d">No que acreditamos</span></a></li>
+    <li><a href="#saia"><span class="n">02</span><span class="t">Saia da zona</span><span class="d">Uma frase em quatro tempos</span></a></li>
+    <li><a href="#efeito"><span class="n">03</span><span class="t">O Efeito Bold</span><span class="d">O que muda quando uma marca ousa</span></a></li>
+    <li><a href="#index"><span class="n">04</span><span class="t">The Bold Index</span><span class="d">Sete palavras do nosso vocabulário</span></a></li>
+    <li><a href="#servicos"><span class="n">05</span><span class="t">O que fazemos</span><span class="d">Três frentes de atuação</span></a></li>
+    <li><a href="#antes"><span class="n">06</span><span class="t">Antes de ser Bold</span><span class="d">O que deixar para trás</span></a></li>
+    <li><a href="#archive"><span class="n">07</span><span class="t">Bold Archive</span><span class="d">Trabalhos e projetos</span></a></li>
+    <li><a href="#vozes"><span class="n">08</span><span class="t">O que elas falam</span><span class="d">Depoimentos de clientes</span></a></li>
+    <li><a href="#pessoas"><span class="n">09</span><span class="t">As pessoas por trás</span><span class="d">Quem faz a Bold</span></a></li>
+    <li><a href="#contato"><span class="n">10</span><span class="t">Viver o efeito</span><span class="d">Contato</span></a></li>
+  </ol>
+</section>
+
+<!-- 02 · MANIFESTO -->
+<section class="manifesto wrap" id="manifesto" data-tone="black" data-chapter="01 / Manifesto">
+  <div class="m-grid">
+    <p class="m-kicker label">01 — Manifesto</p>
+    <h2 class="m-title"><span class="r rv">Você não precisa</span><span class="r rv">apenas aparecer.</span><span class="r r2 rv">Precisa ser lembrado.</span></h2>
+    <figure class="ph v4 m-photo" data-cursor="view" data-photo="cafe" data-pos="58% 45%" data-alt="Mão de unhas pretas erguendo uma xícara de café"><figcaption class="ph-cap"><span>Foto 02</span><span>Detalhe / recorte P&amp;B</span></figcaption></figure>
+    <div class="m-body" id="mBody">
+      <p>Somos um time de especialistas que acredita no poder das <span class="hl">marcas ousadas e autênticas.</span> Desenvolvemos estratégias de marketing que valorizam <span class="hl">o que torna cada marca única.</span></p>
+      <p>Estamos aqui para ajudar a sua marca a encontrar a própria personalidade, comunicar a sua essência e se tornar relevante. E para te instigar, te desafiar a sair da sua zona de conforto e <span class="hl"><span class="caps">SER AUDACIOSO.</span></span></p>
+    </div>
+    <div class="m-sign label"><span>The Bold</span><span>Assinado, a equipe</span></div>
+  </div>
+  <blockquote class="m-quote rv"><span class="q" aria-hidden="true">“</span>As melhores marcas são aquelas que <em>ousam.</em></blockquote>
+</section>
+
+<!-- 03 · SAIA -->
+<section class="saia pin" id="saia" data-tone="black" data-chapter="02 / Saia da zona">
+  <div class="pin-stage">
+    <div class="saia-run label"><span>02 — Uma frase em quatro tempos</span><span class="s" id="saiaRun"><span>Saia</span> <span>da sua zona</span> <span>de conforto.</span> <span>Faça parte do Efeito Bold.</span></span></div>
+    <div class="frag f1"><h2>Saia.</h2></div>
+    <div class="frag f2"><h2>Da sua <span class="z">zona.</span></h2></div>
+    <div class="frag f3"><h2>De <span class="o">conforto.</span></h2></div>
+    <div class="saia-band" id="saiaBand"></div>
+    <div class="frag f4"><h2><span class="small">Faça parte do</span><span>Efeito</span><span>Bold.</span></h2></div>
+    <span class="saia-num label" id="saiaNum">1 / 4</span>
+  </div>
+</section>
+
+<!-- 04 · EFEITO BOLD -->
+<section class="efeito wrap" id="efeito" data-tone="bordo" data-chapter="03 / O Efeito Bold">
+  <div class="ef-head">
+    <p class="label">03 — O Efeito Bold</p>
+    <h2 class="rv">Efeito <em>Bold.</em></h2>
+    <p class="rv"><strong>Se transforme em uma marca audaciosa.</strong>A gente não entrega só conteúdo. A gente muda a forma como a sua marca se posiciona, comunica, aparece, é percebida e constrói autoridade.</p>
+  </div>
+
+  <div class="compare" id="compare" data-cursor="drag">
+    <div class="cmp-layer cmp-before" aria-hidden="true">
+      <div class="cmp-tag label"><span>Antes</span><span>Mais uma no feed</span></div>
+      <div class="cmp-row"><span class="k">Posicionamento</span><span class="v">Em cima do muro</span></div>
+      <div class="cmp-row"><span class="k">Comunicação</span><span class="v">Post por obrigação</span></div>
+      <div class="cmp-row"><span class="k">Presença</span><span class="v">Aparece e some</span></div>
+      <div class="cmp-row"><span class="k">Percepção</span><span class="v">Parecida com todo mundo</span></div>
+      <div class="cmp-row"><span class="k">Autoridade</span><span class="v">Pede atenção</span></div>
+    </div>
+    <div class="cmp-layer cmp-after">
+      <div class="cmp-tag label"><span>Bold.</span><span>Efeito aplicado</span></div>
+      <div class="cmp-row"><span class="k">Posicionamento</span><span class="v">Tem opinião e sustenta</span></div>
+      <div class="cmp-row"><span class="k">Comunicação</span><span class="v">Fala com intenção</span></div>
+      <div class="cmp-row"><span class="k">Presença</span><span class="v">É lembrada</span></div>
+      <div class="cmp-row"><span class="k">Percepção</span><span class="v">Reconhecível de longe</span></div>
+      <div class="cmp-row"><span class="k">Autoridade</span><span class="v">Inspira confiança</span></div>
+    </div>
+    <div class="cmp-handle" id="cmpHandle" role="slider" tabindex="0" aria-label="Comparar antes e depois do Efeito Bold" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" aria-valuetext="20% Bold">
+      <span class="knob">ARRASTE</span>
+    </div>
+  </div>
+  <div class="ef-foot label"><span>Arraste ou role. A diferença é o efeito.</span><span>Antes ← → Bold</span></div>
+</section>
+
+<!-- 05 · BOLD INDEX -->
+<section class="index wrap" id="index" data-tone="white" data-chapter="04 / The Bold Index">
+  <div class="ix-head">
+    <h2 class="rv"><small>04 — vocabulário de uma marca audaciosa</small>The Bold <em>Index</em></h2>
+    <p class="rv">Sete palavras que usamos todos os dias. Passe o cursor ou toque para ler o verbete.</p>
+  </div>
+  <div class="ix-grid">
+    <div class="ix-words" id="ixWords"></div>
+    <aside class="ix-panel" aria-live="polite">
+      <div class="ix-def"><span class="n label" id="ixN"></span><h3 id="ixH"></h3><p class="ix-c" id="ixC"></p><p id="ixP"></p></div>
+    </aside>
+  </div>
+</section>
+
+<!-- 06 · SERVIÇOS -->
+<section class="svc-intro wrap" id="servicos" data-tone="white" data-chapter="05 / O que fazemos">
+  <p class="label">05 — O que fazemos</p>
+  <p class="svc-sentence">Três frentes, uma mesma direção:
+    <button class="svc-word active" data-i="0">estratégia,</button>
+    <button class="svc-word" data-i="1">conteúdo</button> e
+    <button class="svc-word" data-i="2">design.</button>
+  </p>
+  <div class="svc-desc" aria-live="polite"><span class="n label" id="svcN">01</span><span id="svcD">O que a marca precisa dizer, por que dizer e para onde ir.</span><a href="#s01" id="svcA" data-cursor="explore">Abrir capítulo →</a></div>
+</section>
+
+<article class="svc s01 wrap" id="s01" data-tone="black" data-chapter="05.1 / Estratégia">
+  <div class="svc-grid">
+    <div class="svc-num"><span class="big">01</span><span class="nm label">Estratégia</span></div>
+    <div class="svc-main">
+      <p class="svc-want rv"><span class="label">A pergunta</span>Antes de qualquer post: o que a sua marca precisa dizer?</p>
+      <h3 class="rv">Estratégia <em>antes do post.</em></h3>
+      <p class="svc-lead rv">É a frente que define o que a marca precisa comunicar, por que comunicar e qual direção seguir. Começa no diagnóstico, passa pelo posicionamento e chega a um planejamento editorial em que cada publicação tem motivo para existir.</p>
+
+      <div class="svc-split">
+        <div class="svc-photo" data-cursor="view"><figure class="ph v1 zoomer" data-photo="camera" data-pos="50% 45%" data-alt="Perfil de mulher com brinco de prata e uma câmera pendurada no ombro"><figcaption class="ph-cap"><span>Foto 03</span><span>Perfil com câmera</span></figcaption></figure></div>
+        <div class="obj">
+          <h4 class="label">O que entra</h4>
+          <ol>
+            <li>Posicionamento estratégico</li>
+            <li>Estratégia de marca</li>
+            <li>Diagnóstico e análise</li>
+            <li>Planejamento editorial</li>
+            <li>Direcionamento de conteúdo</li>
+            <li>Cronograma estratégico</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="svc s02 wrap" id="s02" data-tone="white" data-chapter="05.2 / Conteúdo">
+  <div class="svc-grid">
+    <div class="svc-num"><span class="big">02</span><span class="nm label">Conteúdo</span></div>
+    <div class="svc-main">
+      <p class="svc-want rv"><span class="label">A virada</span>Conteúdo não é postar. É estratégia virando comunicação.</p>
+      <h3 class="rv">Conteúdo <em>com intenção.</em></h3>
+      <p class="quote-feed rv">Não é só sobre <s>ter post no feed.</s> É sobre comunicar <em>com propósito.</em></p>
+      <p class="svc-lead rv">Cada peça nasce do planejamento: a pauta, o formato e a legenda respondem ao momento da marca e ao público que ela quer alcançar. Do roteiro à edição do Reels, o conteúdo é produzido para sustentar o posicionamento, e não para preencher espaço.</p>
+
+      <div class="fmt">
+        <h4 class="label">O que entra</h4>
+        <ol class="fmt-list">
+          <li class="rv"><b>Planejamento</b><span>Pautas e formatos definidos a partir da estratégia.</span></li>
+          <li class="rv"><b>Cronograma editorial</b><span>O que entra, quando entra e por quê.</span></li>
+          <li class="rv"><b>Roteiros</b><span>Estrutura e fala para os vídeos da marca.</span></li>
+          <li class="rv"><b>Reels</b><span>Roteirizados e editados pela equipe.</span></li>
+          <li class="rv"><b>Carrosséis e posts</b><span>Para educar, posicionar e abrir conversa.</span></li>
+          <li class="rv"><b>Legendas</b><span>O texto que completa a peça e conduz a leitura.</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="svc s03 wrap" id="s03" data-tone="bordo" data-chapter="05.3 / Design">
+  <div class="svc-grid">
+    <div class="svc-num"><span class="big">03</span><span class="nm label">Design</span></div>
+    <div class="svc-main">
+      <p class="svc-want rv"><span class="label">O efeito</span>Antes de ser lida, a marca precisa ser reconhecida.</p>
+      <h3 class="rv">Design que <em>traduz posicionamento.</em></h3>
+      <p class="svc-lead rv">É a frente que dá forma à estratégia. Direção visual, identidade aplicada ao conteúdo, capas e peças para Instagram desenvolvidas para que o feed tenha a cara da marca e seja reconhecido de longe.</p>
+      <div class="svc-meta" aria-label="O que entra"><span class="chip">Design para Instagram</span><span class="chip">Criação visual das peças</span><span class="chip">Capas</span><span class="chip">Identidade visual aplicada</span><span class="chip">Direção visual</span></div>
+
+      <div class="dz" id="dz">
+        <div class="dz-head"><span class="label">Trabalhos reais da equipe The Bold</span><span class="label dz-hint">Passe o cursor ou toque para abrir</span></div>
+        <figure class="dz-block">
+          <figcaption class="label">Carrossel · 6 lâminas</figcaption>
+          <ol class="dz-car" id="dzCar" data-cursor="view"><li class="dz-slide" style="--k:0"><img src="img/dz-car-1.jpg" alt="Carrossel para cliente, lâmina 1 de 6" loading="lazy" decoding="async"><span>01</span></li><li class="dz-slide" style="--k:1"><img src="img/dz-car-2.jpg" alt="Carrossel para cliente, lâmina 2 de 6" loading="lazy" decoding="async"><span>02</span></li><li class="dz-slide" style="--k:2"><img src="img/dz-car-3.jpg" alt="Carrossel para cliente, lâmina 3 de 6" loading="lazy" decoding="async"><span>03</span></li><li class="dz-slide" style="--k:3"><img src="img/dz-car-4.jpg" alt="Carrossel para cliente, lâmina 4 de 6" loading="lazy" decoding="async"><span>04</span></li><li class="dz-slide" style="--k:4"><img src="img/dz-car-5.jpg" alt="Carrossel para cliente, lâmina 5 de 6" loading="lazy" decoding="async"><span>05</span></li><li class="dz-slide" style="--k:5"><img src="img/dz-car-6.jpg" alt="Carrossel para cliente, lâmina 6 de 6" loading="lazy" decoding="async"><span>06</span></li></ol>
+        </figure>
+        <div class="dz-posts">
+          <figure class="dz-block"><figcaption class="label">Post estático</figcaption><img src="img/dz-post-1.jpg" alt="Post estático para cliente da construção civil: Existe uma etapa da obra que quase ninguém valoriza. E ela decide o custo de todas as outras." loading="lazy" decoding="async" data-cursor="view"></figure>
+          <figure class="dz-block"><figcaption class="label">Post estático</figcaption><img src="img/dz-post-2.jpg" alt="Post estático para cliente: A pergunta que mudou a minha forma de avaliar não estava em nenhum livro." loading="lazy" decoding="async" data-cursor="view"></figure>
+          <figure class="dz-block"><figcaption class="label">Post estático</figcaption><img src="img/dz-post-3.jpg" alt="Post estático para cliente do mercado imobiliário: Corretor, já aconteceu de você pedir a certidão errada? E quem paga essa conta?" loading="lazy" decoding="async" data-cursor="view"></figure>
+          <figure class="dz-block dz-reels"><figcaption class="label">Capa de reels</figcaption><img src="img/dz-reels-1.jpg" alt="Capa de reels para cliente: Se você comprou um travesseiro antirrefluxo para o seu bebê, cuidado!" loading="lazy" decoding="async" data-cursor="view"></figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</article>
+
+<!-- 07 · ANTES DE SER BOLD -->
+<section class="antes wrap" id="antes" data-tone="black" data-chapter="06 / Antes de ser Bold">
+  <div class="antes-grid">
+    <div class="antes-k"><p class="label">06</p><h2>Antes de ser Bold…</h2><p>Uma lista curta do que fica para trás.</p></div>
+    <div class="strikes" id="strikes">
+      <p class="strike"><span class="tx">você precisa parar de fazer o que todo mundo está fazendo.</span></p>
+      <p class="strike"><span class="tx">parar de copiar.</span></p>
+      <p class="strike"><span class="tx">parar de postar por postar.</span></p>
+      <p class="strike"><span class="tx">parar de tentar agradar todo mundo.</span></p>
+      <p class="strike final"><small>Agora sim</small>Faça parte do <span class="b">Efeito Bold.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · SEM FÓRMULAS -->
+<section class="sem wrap" id="sem" data-tone="white" data-chapter="06 / Sem fórmulas">
+  <div class="sem-lines" id="semLines">
+    <div data-dir="1"><b>Sem</b> fórmulas.</div>
+    <div data-dir="-1"><b>Sem</b> mais do mesmo.</div>
+    <div data-dir="1"><b>Sem</b> conteúdo por obrigação.</div>
+  </div>
+  <div class="sem-after"><p class="rv">Estratégia para marcas que querem ser lembradas.</p></div>
+  <div class="feed-wrap">
+    <div class="feed" id="feed" aria-hidden="true"></div>
+    <p class="feed-cap"><span>Todo</span><span>mundo</span><span>posta.</span><span>Poucos</span><span>são</span><span><em>lembrados.</em></span></p>
+  </div>
+</section>
+
+<!-- 09 · ARCHIVE -->
+<section class="archive" id="archive" data-tone="black" data-chapter="07 / Bold Archive">
+  <div class="wrap">
+    <div class="ar-head">
+      <h2 class="rv">Bold <em>Archive</em></h2>
+      <p class="rv">O arquivo visual da The Bold: posts, carrosséis e capas de reels criados para clientes, ao lado do nosso próprio ensaio.</p>
+    </div>
+  </div>
+  <div class="wall" id="wall">
+    <div class="wall-row" data-dir="-1">
+      <div class="tile work" style="width:clamp(220px,24vw,400px);aspect-ratio:4/5" data-cursor="view"><img src="img/ar-cnh.jpg" alt="Post estático para cliente: A CNH é a última coisa que a maioria das pessoas resolve (e costuma ser a primeira a dar problema)." loading="lazy" decoding="async"><div class="ov"><b>Post estático</b><span class="label">cliente The Bold</span></div></div>
+      <div class="tile" style="width:clamp(160px,16vw,260px);aspect-ratio:3/4" data-cursor="view"><span class="ph v2" data-photo="vogue" data-pos="50% 40%"></span><div class="ov"><b>Ensaio The Bold</b><span class="label">editorial</span></div></div>
+      <div class="tile work" style="width:clamp(200px,21vw,350px);aspect-ratio:4/5" data-cursor="view"><img src="img/dz-car-1.jpg" alt="Capa de carrossel para cliente da área da estética: Uma noiva a 6 meses do casamento e uma noiva a 30 dias não entram no meu consultório da mesma forma." loading="lazy" decoding="async"><div class="ov"><b>Capa de carrossel</b><span class="label">cliente The Bold</span></div></div>
+      <div class="tile" style="width:clamp(280px,34vw,560px);aspect-ratio:16/10" data-cursor="view"><span class="ph v1" data-photo="estudio" data-pos="50% 52%"></span><div class="ov"><b>Ensaio The Bold</b><span class="label">bastidor</span></div></div>
+      <div class="tile work" style="width:clamp(200px,21vw,350px);aspect-ratio:4/5" data-cursor="view"><img src="img/ar-filho.jpg" alt="Post estático para cliente: Seu filho sempre será a sua criança." loading="lazy" decoding="async"><div class="ov"><b>Post estático</b><span class="label">cliente The Bold</span></div></div>
+    </div>
+    <div class="wall-row" data-dir="1">
+      <div class="tile" style="width:clamp(180px,19vw,320px);aspect-ratio:1" data-cursor="view"><span class="ph v4" data-photo="camera" data-pos="58% 40%"></span><div class="ov"><b>Ensaio The Bold</b><span class="label">retrato</span></div></div>
+      <div class="tile work" style="width:clamp(220px,24vw,400px);aspect-ratio:4/5" data-cursor="view"><img src="img/ar-portugal.jpg" alt="Capa de carrossel para cliente: Está por dentro das novas regras para o visto de trabalho em Portugal? Arrasta para o lado que te conto o que mudou." loading="lazy" decoding="async"><div class="ov"><b>Capa de carrossel</b><span class="label">cliente The Bold</span></div></div>
+      <div class="tile work" style="width:clamp(150px,15vw,240px);aspect-ratio:9/16" data-cursor="view"><img src="img/dz-reels-1.jpg" alt="Capa de reels para cliente: Se você comprou um travesseiro antirrefluxo para o seu bebê, cuidado!" loading="lazy" decoding="async"><div class="ov"><b>Capa de reels</b><span class="label">cliente The Bold</span></div></div>
+      <div class="tile" style="width:clamp(240px,28vw,460px);aspect-ratio:3/2" data-cursor="view"><span class="ph v3" data-photo="mesa" data-pos="50% 50%"></span><div class="ov"><b>Ensaio The Bold</b><span class="label">mesa</span></div></div>
+      <div class="tile work" style="width:clamp(200px,21vw,350px);aspect-ratio:4/5" data-cursor="view"><img src="img/dz-car-5.jpg" alt="Lâmina de carrossel para cliente da área da estética." loading="lazy" decoding="async"><div class="ov"><b>Lâmina de carrossel</b><span class="label">cliente The Bold</span></div></div>
+    </div>
+  </div>
+  <div class="wrap"><div class="ar-note label"><span>Trabalhos reais da equipe The Bold</span><span>Posts · carrosséis · capas de reels</span></div></div>
+</section>
+
+<!-- 10 · VOZES -->
+<section class="vozes wrap" id="vozes" data-tone="white" data-chapter="08 / O que elas falam">
+  <div class="vz-head"><p class="label">08 — Profissionais que escolheram viver o Efeito Bold</p><h2 class="rv">O que elas falam sobre a <em>The Bold.</em></h2></div>
+  <div class="vz-spread">
+    <figure class="vz a rv"><span class="stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</span><span class="q" aria-hidden="true">“</span>
+      <blockquote><p>Sou cliente da agência The Bold há 2 anos e só tenho elogios. A equipe é <em>super estratégica, organizada e dedicada</em> em todas as entregas. Super indico!</p></blockquote>
+      <figcaption><span>Cíntia Ghetti</span><span>Cliente The Bold</span></figcaption></figure>
+    <figure class="vz b rv"><span class="stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</span><span class="q" aria-hidden="true">“</span>
+      <blockquote><p>A The Bold é <em>alto nível!</em> É uma equipe de alta qualidade, cuidam do seu negócio com muita atenção. Minha experiência com eles é a melhor dos mundos, minhas redes sociais se tornou outra após a contratação do serviço. Super recomendo!</p></blockquote>
+      <figcaption><span>Gabriela Bizzo</span><span>Cliente The Bold</span></figcaption></figure>
+    <figure class="vz c rv"><span class="stars" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</span><span class="q" aria-hidden="true">“</span>
+      <blockquote><p><em>Não vivo sem a The Bold</em> - estão no meu dia a dia!</p><p>Sou muito grata por essa nova fase que estamos construindo no meu perfil. Estamos juntas há menos de um mês e já vejo resultados claros.</p><p>Quem ainda estiver com dúvida, pode ir sem medo!</p></blockquote>
+      <figcaption><span>Paula Gouvêa</span><span>Cliente The Bold</span></figcaption></figure>
+  </div>
+  <div class="prints">
+    <p class="label prints-k">Prints de feedback · mensagens reais de clientes</p>
+    <div class="prints-row">
+      <figure class="print rv"><img src="img/print-01.jpg" alt="Mensagem de cliente para a Rebeca: saiu da reunião com a cabeça explodindo de ideias e, principalmente, com direção. A conversa organizou muita coisa e mostrou caminhos que ainda não estavam claros. Agradece pela troca, pela visão e pelo cuidado na análise." loading="lazy" decoding="async"></figure>
+      <figure class="print rv"><img src="img/print-02.jpg?v=3" alt="Mensagem de cliente: um sentimento chamado abrir o Notion para aprovar os conteúdos e já ter todos os vídeos gravados." loading="lazy" decoding="async"></figure>
+      <figure class="print rv"><img src="img/print-03.jpg" alt="Mensagem de cliente: Perfeito Beca, é isso! Obrigada mesmo! Essas mensagens é até um acalento depois do dia de hoje. Só aqui já valeu todo o investimento com a agência. Amanhã vou voltar sim, pela manhã já, pra não ter desculpa." loading="lazy" decoding="async"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · PESSOAS -->
+<section class="pp-open pin" id="pessoas" data-tone="black" data-chapter="09 / As pessoas">
+  <div class="pin-stage">
+    <div class="pp-photo" id="ppPhoto" data-cursor="view"><figure class="ph v3" data-photo="estudio" data-pos="50% 54%" data-alt="Bastidor em estúdio: mulher sentada com notebook no colo, entre refletor e softbox, com revistas no chão"><figcaption class="ph-cap"><span>Foto 07</span><span>Estúdio</span></figcaption></figure></div>
+    <h2 class="pp-title"><span>As pessoas</span><span>por trás</span><span>da Bold.</span></h2>
+    <div class="pp-cue label" aria-hidden="true"><span>Role para conhecer a equipe</span><span class="stem"></span></div>
+  </div>
+</section>
+
+<section class="people wrap" data-tone="white" data-chapter="09 / As pessoas">
+  <div class="mast-head">
+    <h2 class="rv">Expediente.</h2>
+    <p class="rv">Como em toda revista, aqui está quem faz cada página. Estratégia, texto, imagem e vídeo, na mesma mesa.</p>
+  </div>
+  <ul class="mast" id="mast">
+    <li class="mast-row"><span class="area">Direção</span><span class="role">CEO</span></li>
+    <li class="mast-row"><span class="area">Direção</span><span class="role">Diretora Geral</span></li>
+    <li class="mast-row"><span class="area">Estratégia</span><span class="role">Estrategista de Conteúdo</span></li>
+    <li class="mast-row"><span class="area">Jurídico</span><span class="role">Estrategista Jurídica</span></li>
+    <li class="mast-row"><span class="area">Design</span><span class="role">Designers</span></li>
+    <li class="mast-row"><span class="area">Vídeo</span><span class="role">Editores de vídeo</span></li>
+    <li class="mast-row"><span class="area">Texto</span><span class="role">Copywriter</span></li>
+  </ul>
+</section>
+
+<!-- 12 · CTA -->
+<section class="cta wrap" id="contato" data-tone="black" data-chapter="10 / Viver o efeito">
+  <p class="label">10 — Pronto para sair da zona de conforto?</p>
+  <h2><span class="rv" style="display:block">Sua marca já é boa.</span><span class="l2 rv">Agora falta ela fazer parte</span><span class="l3 rv">do <b>Efeito Bold.</b></span></h2>
+  <div class="cta-row">
+    <a class="btn-bold magnetic" id="ctaBtn" href="#contato" target="_blank" rel="noopener" data-cursor="enter">Viver o Efeito Bold <span class="arr">→</span></a>
+    <div class="cta-side">
+      <figure class="ph v2 cta-photo" data-photo="whatsapp" data-pos="28% 62%" data-cursor="enter" data-alt="Celular sobre o notebook recebendo um áudio de WhatsApp da The Bold"><figcaption class="ph-cap"><span>Foto 05</span><span>Celular · The Bold</span></figcaption></figure>
+      <p class="cta-aside">A conversa começa no WhatsApp, com a equipe The Bold. Sem formulário, sem roteiro pronto.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot wrap" data-tone="black" data-chapter="">
+  <div class="foot-grid">
+    <div><h4 class="label">Instagram</h4><span id="fIg"></span></div>
+    <div><h4 class="label">WhatsApp</h4><span id="fWa"></span></div>
+    <div><h4 class="label">E-mail</h4><span id="fMail"></span></div>
+    <div><h4 class="label">Edição</h4><span>Nº 01 · Efeito Bold</span></div>
+  </div>
+  <div class="foot-sign label"><span>The Bold. Agência de marketing</span><span>Se transforme em uma marca audaciosa</span></div>
+  <div class="foot-mark" aria-hidden="true"><span class="the">the</span>BOLD.</div>
+</footer>
+
+<script>
+/* ===== Contatos: preencha aqui ===== */
+const CONFIG = {
+  whatsapp: '5521986558224', // só números, com DDI e DDD
+  whatsappMsg: 'Olá, The Bold! Quero viver o Efeito Bold.',
+  instagram: 'thebold.mkt',  // usuário sem @
+  email: 'bold.agenciamkt@gmail.com'
+};
+
+(() => {
+const $ = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const seg = (p, a, b) => clamp((p - a) / (b - a));
+const ease = t => 1 - Math.pow(1 - t, 3);
+const lerp = (a, b, t) => a + (b - a) * t;
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE = matchMedia('(hover: hover) and (pointer: fine)').matches;
+if (RM) document.documentElement.classList.add('rm');
+let vh = innerHeight, vw = innerWidth;
+const mobile = () => vw <= 860;
+
+/* ---- contatos ---- */
+const wa = CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.whatsappMsg)}` : '';
+const waLink = msg => CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg || CONFIG.whatsappMsg)}` : '';
+const cta = $('#ctaBtn');
+if (wa) cta.href = wa; else { cta.removeAttribute('target'); cta.href = '#fWa'; }
+$$('.js-wa').forEach(a => { const u = waLink(a.dataset.msg); if (u) { a.href = u; a.target = '_blank'; a.rel = 'noopener'; } });
+const fill = (el, val, href) => { el.innerHTML = val ? `<a href="${href}" target="_blank" rel="noopener">${val}</a>` : '<span class="tbd">a definir</span>'; };
+fill($('#fIg'), CONFIG.instagram && '@' + CONFIG.instagram, 'https://www.instagram.com/' + CONFIG.instagram + '/');
+fill($('#fWa'), CONFIG.whatsapp && CONFIG.whatsapp.replace(/^55(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3'), wa);
+const mail = $('#fMail');
+mail.innerHTML = CONFIG.email ? `<a href="mailto:${CONFIG.email}" style="user-select:all">${CONFIG.email}</a>` : '<span class="tbd">a definir</span>';
+
+/* ---- menu mobile ---- */
+const ov = $('#overlay'), nb = $('#navBtn');
+const setMenu = o => { if (o) { ov.hidden = false; requestAnimationFrame(() => ov.classList.add('open')); } else { ov.classList.remove('open'); setTimeout(() => ov.hidden = true, 600); } nb.setAttribute('aria-expanded', o); };
+nb.addEventListener('click', () => setMenu(true));
+$('#navClose').addEventListener('click', () => setMenu(false));
+$$('#overlay a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+/* ---- manifesto: dividir palavras ---- */
+const mBody = $('#mBody');
+(function split(node) {
+  [...node.childNodes].forEach(n => {
+    if (n.nodeType === 3) {
+      const parts = n.textContent.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      parts.forEach(t => {
+        if (!t) return;
+        if (/^\s+$/.test(t)) frag.appendChild(document.createTextNode(t));
+        else { const s = document.createElement('span'); s.className = 'w'; s.textContent = t; frag.appendChild(s); }
+      });
+      n.replaceWith(frag);
+    } else if (n.nodeType === 1) split(n);
+  });
+})(mBody);
+const mWords = $$('.w', mBody), mHls = $$('.hl', mBody);
+
+/* ---- Bold Index ---- */
+const IDX = [
+  ['Estratégia', 'intenção', 'v1|mesa|45% 45%', 'Antes do post vem a pergunta: para quê? Toda peça nasce de um objetivo, e todo objetivo tem um caminho.'],
+  ['Conteúdo', 'percepção', 'v3|camera|55% 72%', 'O que você publica é o que você se torna para quem te vê. Conteúdo é construção de percepção, post a post.'],
+  ['Posicionamento', 'escolha', 'v2|retrato|58% 24%', 'Escolher um lugar e sustentá-lo. Quem tenta falar com todo mundo não é lembrado por ninguém.'],
+  ['Autoridade', 'confiança', 'v4|vogue|50% 40%', 'Não se pede, se constrói. Com consistência, repertório e coragem de ter opinião.'],
+  ['Design', 'reconhecimento', 'v5|whatsapp|62% 18%', 'A primeira impressão é visual. Coerência estética faz uma marca ser reconhecida antes mesmo de ser lida.'],
+  ['Personalidade', 'assinatura', 'v2|camera|62% 12%', 'A única coisa que ninguém consegue copiar. O nosso trabalho é amplificar a sua.'],
+  ['Criatividade', 'ruptura', 'v1|cafe|48% 40%', 'Não é enfeite. É o jeito mais eficiente de não passar despercebido.']
+];
+const ixWords = $('#ixWords');
+IDX.forEach((d, i) => {
+  const b = document.createElement('button');
+  b.className = 'ix-w'; b.dataset.i = i;
+  b.innerHTML = `<span class="wd">${d[0]}</span><sup>${String(i + 1).padStart(2, '0')}</sup>${i < IDX.length - 1 ? '<span class="sep" aria-hidden="true">,</span>' : '<span class="sep" aria-hidden="true">.</span>'}`;
+  b.setAttribute('aria-label', `${d[0]}: ${d[3]}`);
+  const inl = document.createElement('div');
+  inl.className = 'ix-inline';
+  inl.innerHTML = `<p><em>→ ${d[1]}.</em> ${d[3]}</p>`;
+  ixWords.append(b, inl);
+});
+const ixBtns = $$('.ix-w');
+
+/* ---- fotos ---- */
+const PHOTOS = { vogue: 'img/01-vogue.jpg', cafe: 'img/02-cafe.jpg', camera: 'img/03-camera.jpg', retrato: 'img/04-retrato.jpg', mesa: 'img/06-mesa.jpg', estudio: 'img/07-estudio.jpg', whatsapp: 'img/05-whatsapp.jpg' };
+const ok = {};
+$$('[data-photo]').forEach(el => {
+  if (!el.classList.contains('ph')) return;
+  const img = new Image();
+  img.alt = el.dataset.alt || ''; img.decoding = 'async';
+  if (!('eager' in el.dataset)) img.loading = 'lazy';
+  img.style.objectPosition = el.dataset.pos || '50% 50%';
+  img.onload = () => { ok[el.dataset.photo] = true; };
+  img.onerror = () => img.remove();
+  img.src = PHOTOS[el.dataset.photo];
+  el.prepend(img);
+});
+
+/* ---- feed: todo mundo igual, uma marca diferente ---- */
+const feed = $('#feed');
+for (let i = 0; i < 24; i++) { const t = document.createElement('i'); t.style.setProperty('--d', i); if (i === 13) { t.className = 'me'; t.textContent = 'B.'; } feed.appendChild(t); }
+function ixSet(i) {
+  ixBtns.forEach((b, k) => b.classList.toggle('active', k === i));
+  ixWords.classList.toggle('has-active', i >= 0);
+  if (i < 0) return;
+  $('#ixN').textContent = `Verbete ${String(i + 1).padStart(2, '0')} / 07`;
+  $('#ixH').textContent = IDX[i][0];
+  $('#ixP').textContent = IDX[i][3];
+  $('#ixC').textContent = '→ ' + IDX[i][1];
+}
+ixSet(0); ixWords.classList.remove('has-active'); ixBtns[0].classList.remove('active');
+ixBtns.forEach((b, i) => {
+  b.addEventListener('mouseenter', () => { if (!mobile()) ixSet(i); });
+  b.addEventListener('focus', () => { if (!mobile()) ixSet(i); });
+  b.addEventListener('click', () => { if (mobile() && b.classList.contains('active')) { ixSet(-1); b.classList.remove('active'); } else ixSet(i); });
+});
+ixWords.addEventListener('mouseleave', () => { if (!mobile()) { ixWords.classList.remove('has-active'); ixBtns.forEach(b => b.classList.remove('active')); } });
+
+/* ---- serviços: palavras ---- */
+const SVC = [
+  ['01', 'O que a marca precisa dizer, por que dizer e para onde ir.', '#s01'],
+  ['02', 'Estratégia transformada em comunicação: roteiros, Reels, carrosséis, posts e legendas.', '#s02'],
+  ['03', 'A forma que faz o posicionamento ser reconhecido à primeira vista.', '#s03']
+];
+const sws = $$('.svc-word');
+const svcSet = i => { sws.forEach((w, k) => w.classList.toggle('active', k === i)); $('#svcN').textContent = SVC[i][0]; $('#svcD').textContent = SVC[i][1]; $('#svcA').href = SVC[i][2]; };
+sws.forEach((w, i) => {
+  w.addEventListener('mouseenter', () => FINE && svcSet(i));
+  w.addEventListener('focus', () => svcSet(i));
+  w.addEventListener('click', () => { if (FINE && w.classList.contains('active')) location.hash = SVC[i][2]; svcSet(i); });
+});
+
+/* ---- expediente (mobile: toque abre) ---- */
+$('#dzCar').addEventListener('click', e => e.currentTarget.classList.toggle('open'));
+
+let mx = vw / 2, my = vh / 2;
+
+/* ---- cursor ---- */
+const cur = $('#cursor'), curT = $('#cursorTxt');
+let cx = mx, cy = my;
+const CUR = { view: 'VIEW', explore: 'EXPLORE', enter: 'ENTER', drag: 'DRAG' };
+if (FINE && !RM) {
+  document.body.classList.add('has-cursor');
+  addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; cur.classList.add('on'); }, { passive: true });
+  document.addEventListener('mouseleave', () => cur.classList.remove('on'));
+  document.addEventListener('pointerover', e => {
+    const t = e.target.closest('[data-cursor]');
+    if (t) { curT.textContent = CUR[t.dataset.cursor]; cur.classList.add('big'); cur.classList.remove('link'); return; }
+    cur.classList.remove('big');
+    cur.classList.toggle('link', !!e.target.closest('a,button,summary'));
+  });
+} else addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+
+/* ---- botões magnéticos ---- */
+const mags = $$('.magnetic');
+let magState = mags.map(() => ({ x: 0, y: 0, tx: 0, ty: 0 }));
+if (FINE && !RM) addEventListener('pointermove', e => {
+  mags.forEach((m, i) => {
+    const r = m.getBoundingClientRect();
+    const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+    const d = Math.hypot(dx, dy), R = Math.max(r.width, r.height) * .9;
+    magState[i].tx = d < R ? dx * .22 : 0; magState[i].ty = d < R ? dy * .3 : 0;
+  });
+}, { passive: true });
+
+/* ---- comparador Antes → Bold ---- */
+const cmp = $('#compare'), hnd = $('#cmpHandle');
+let cmpUser = false, cmpX = 80, drag = false;
+const setX = v => { cmpX = clamp(v, 0, 100); cmp.style.setProperty('--x', cmpX + '%'); const b = Math.round(100 - cmpX); hnd.setAttribute('aria-valuenow', b); hnd.setAttribute('aria-valuetext', b + '% Bold'); };
+const fromEv = e => { const r = cmp.getBoundingClientRect(); setX((e.clientX - r.left) / r.width * 100); };
+cmp.addEventListener('pointerdown', e => { drag = true; cmpUser = true; cmp.classList.add('drag'); fromEv(e); });
+addEventListener('pointermove', e => { if (drag) fromEv(e); }, { passive: true });
+addEventListener('pointerup', () => { drag = false; cmp.classList.remove('drag'); });
+addEventListener('pointercancel', () => { drag = false; cmp.classList.remove('drag'); });
+hnd.addEventListener('keydown', e => {
+  const k = { ArrowLeft: -5, ArrowRight: 5, Home: -100, End: 100 }[e.key];
+  if (k !== undefined) { e.preventDefault(); cmpUser = true; setX(cmpX - k); }
+});
+
+/* ---- contagem ---- */
+const countUp = el => {
+  const to = +el.dataset.count, t0 = performance.now(), D = 900;
+  const step = t => { const k = ease(clamp((t - t0) / D)); el.textContent = String(Math.round(to * k)).padStart(2, '0'); if (k < 1) requestAnimationFrame(step); };
+  if (RM) return; el.textContent = '00'; requestAnimationFrame(step);
+};
+
+/* ---- observadores ---- */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  const t = e.target;
+  if (t.classList.contains('rv')) t.classList.add('in');
+  if (t.dataset.count) countUp(t);
+  if (t.id === 'cal') t.classList.add('filled');
+  if (t.id === 'feed') t.classList.add('in');
+  io.unobserve(t);
+}), { threshold: .25, rootMargin: '0px 0px -6% 0px' });
+$$('.rv,[data-count],#cal,#feed').forEach(el => io.observe(el));
+// stagger para títulos em linhas
+$$('.m-title .r, .cta h2 .rv').forEach((el, i) => el.style.transitionDelay = (i % 3) * 110 + 'ms');
+
+/* ---- tom do corpo + capítulo ---- */
+const toned = $$('[data-tone]');
+const chapter = $('#chapter'), chTxt = $('#chapterTxt');
+let curTone = '', curCh = null;
+function setChapter(t) {
+  if (t === curCh) return; curCh = t;
+  chapter.classList.toggle('on', !!t);
+  if (!t) return;
+  const s = chTxt; s.style.transform = 'translateY(-110%)';
+  setTimeout(() => { s.textContent = t; s.style.transition = 'none'; s.style.transform = 'translateY(110%)'; requestAnimationFrame(() => { s.style.transition = ''; s.style.transform = 'none'; }); }, 220);
+}
+
+/* ---- elementos de cena ---- */
+const hero = $('#top'), heroWord = $('#heroWord'), heroPhoto = $('#heroPhoto'), heroInner = $('#heroPhotoInner');
+const hlA = $('#hlA'), hlB = $('#hlB'), hlMark = $('#hlMark'), heroTag = $('#heroTag'), heroCue = $('#heroCue'), heroTop = $('.hero-top');
+const heroCap = $('#heroCap'), heroFull = $('#heroFull');
+const saia = $('#saia'), frs = $$('.frag', saia), band = $('#saiaBand'), runSp = $$('#saiaRun > span'), saiaNum = $('#saiaNum');
+const strikes = $$('.strike'), semLines = $$('#semLines div'), sem = $('#sem');
+const wall = $('#wall'), rows = $$('.wall-row', wall);
+// parede em loop contínuo: duplica as peças de cada faixa e desliza sem parar
+rows.forEach(w => { [...w.children].forEach(c => { const k = c.cloneNode(true); k.setAttribute('aria-hidden', 'true'); k.querySelectorAll('img').forEach(i => i.alt = ''); w.appendChild(k); }); });
+const marq = rows.map((w, i) => ({ w, x: i ? -0.5 : 0, hover: false }));
+marq.forEach(m => { m.w.addEventListener('mouseenter', () => m.hover = true); m.w.addEventListener('mouseleave', () => m.hover = false); });
+let lastT = 0, lastScroll = scrollY;
+const ppOpen = $('#pessoas'), ppPhoto = $('#ppPhoto');
+const zoomers = $$('.svc-photo');
+const nav = $('#nav'), floatCta = $('#floatCta');
+let lastY = scrollY;
+
+const progOf = el => { const r = el.getBoundingClientRect(); return { p: clamp(-r.top / (r.height - vh)), r }; };
+const inView = r => r.bottom > -vh * .2 && r.top < vh * 1.2;
+
+function lines(el, k) { // revela linhas uma a uma
+  const ls = $$('.ln > span', el);
+  ls.forEach((s, i) => { const kk = ease(clamp(k * ls.length - i * .55)); s.style.transform = `translateY(${(1 - kk) * 105}%)`; });
+}
+
+function frame(now = 0) {
+  const dt = lastT ? Math.min(64, now - lastT) : 16; lastT = now;
+  const y = scrollY;
+
+  /* nav esconde ao descer */
+  if (Math.abs(y - lastY) > 4) { nav.classList.toggle('hide', y > lastY && y > vh * .6 && !ov.classList.contains('open')); lastY = y; }
+
+  /* tom */
+  let tone = 'black', ch = '';
+  for (const s of toned) { const r = s.getBoundingClientRect(); if (r.top <= vh * .5 && r.bottom > vh * .5) { tone = s.dataset.tone; ch = s.dataset.chapter; break; } }
+
+  /* CAPA */
+  if (!RM) {
+    const { p, r } = progOf(hero);
+    if (inView(r)) {
+      const m = mobile();
+      const p1 = ease(seg(p, .02, .34));
+      const sx = m ? -24 : -26, sy = m ? -33 : -30, sc = m ? .4 : .38;
+      heroWord.style.transform = `translate(-50%,-50%) translate(${p1 * sx}vw, ${p1 * sy}vh) scale(${1 - p1 * (1 - sc)})`;
+      const intro = 1 - seg(p, 0, .07);
+      heroTag.style.opacity = intro; heroCue.style.opacity = intro; heroTop.style.opacity = intro;
+      // foto: de faixa fina para coluna; depois tela cheia
+      const a = ease(seg(p, .04, .36)), b = ease(seg(p, .78, .9));
+      const T = m ? [lerp(.46, .5, a), 0, lerp(.46, .06, a), lerp(0, .28, a)] : [lerp(.46, .12, a), lerp(0, .05, a), lerp(.46, .12, a), lerp(0, .57, a)];
+      const ins = T.map(v => (v * (1 - b) * 100).toFixed(2) + '%');
+      heroPhoto.style.clipPath = `inset(${ins[0]} ${ins[1]} ${ins[2]} ${ins[3]})`;
+      // no celular a coluna fica na metade de baixo da tela: desce a foto para a revista cair dentro dela
+      const ty = m ? lerp(12, 36, a) * (1 - b) : 0;
+      heroInner.style.transform = `translate(${(m ? 12 : 26) * a * (1 - b)}vw, ${ty}vh) scale(${1.15 - p * .15})`;
+      heroWord.style.opacity = 1 - seg(p, .8, .88);
+      // frase A
+      const aIn = seg(p, .26, .4), aOut = seg(p, .48, .55);
+      hlA.style.opacity = aIn > 0 ? 1 - aOut : 0; lines(hlA, aIn);
+      hlA.style.transform = `translateY(${-aOut * 40}px)`;
+      // frase B
+      const bIn = seg(p, .58, .7), bOut = seg(p, .76, .82);
+      hlB.style.opacity = bIn > 0 ? 1 - bOut : 0; lines(hlB, bIn);
+      hlMark.style.setProperty('--hlw', (ease(seg(p, .66, .74)) * 100) + '%');
+      heroCap.style.opacity = seg(p, .3, .38) * (1 - seg(p, .76, .8));
+      heroFull.style.opacity = seg(p, .87, .9);
+    }
+  }
+
+  /* MANIFESTO: palavras acendem */
+  const mr = mBody.getBoundingClientRect();
+  if (!RM && inView(mr)) { const lim = vh * .66; mWords.forEach(w => w.classList.toggle('lit', w.getBoundingClientRect().top < lim)); mHls.forEach(h => h.classList.toggle('lit', h.querySelector('.w').classList.contains('lit'))); }
+
+  /* SAIA */
+  if (!RM) {
+    const { p, r } = progOf(saia);
+    if (inView(r)) {
+      const R = [[0, .2], [.2, .4], [.4, .64], [.7, 1.01]];
+      frs.forEach((f, i) => {
+        const [a, b] = R[i];
+        const inn = i === 0 ? 1 : ease(seg(p, a, a + .06)), out = i === 3 ? 0 : seg(p, b - .04, b + .02);
+        f.style.opacity = inn * (1 - out);
+        const sc = 1.08 - .08 * inn;
+        f.style.transform = `translateY(${-out * 8}vh) scale(${sc})`;
+      });
+      const z = $('.f2 .z'); z.style.transform = `scale(${1 + ease(seg(p, .24, .36)) * .22})`;
+      band.style.transform = `translateX(${(-1 + ease(seg(p, .6, .72))) * 101}%)`;
+      const step = p < .2 ? 0 : p < .4 ? 1 : p < .66 ? 2 : 3;
+      runSp.forEach((s, i) => s.classList.toggle('on', i <= step));
+      saiaNum.textContent = (step + 1) + ' / 4';
+      if (p > .7) tone = 'bordo';
+    }
+  }
+
+  /* EFEITO: comparador guiado pelo scroll */
+  if (!cmpUser && !RM) {
+    const r = cmp.getBoundingClientRect();
+    if (inView(r)) setX(lerp(88, 14, ease(seg(1 - (r.top + r.height * .5) / vh, .05, .6))));
+  }
+
+  /* ANTES: riscos */
+  strikes.forEach(s => { const t = s.getBoundingClientRect().top; if (t < vh * .56) s.classList.add('on'); else if (t > vh * .8) s.classList.remove('on'); });
+
+  /* SEM FÓRMULAS: linhas se alinham */
+  if (!RM) {
+    const r = sem.getBoundingClientRect();
+    if (inView(r)) {
+      const q = ease(seg(1 - r.top / vh, 0, .9));
+      semLines.forEach(l => l.style.transform = `translateX(${(1 - q) * 10 * l.dataset.dir}vw)`);
+    }
+  }
+
+  /* ARCHIVE: parede desliza */
+  if (!RM) {
+    const r = wall.getBoundingClientRect();
+    const boost = Math.min(4, Math.abs(scrollY - lastScroll) / 6); lastScroll = scrollY;
+    if (inView(r)) marq.forEach(m => {
+      const half = m.w.scrollWidth / 2; if (!half) return;
+      const v = m.hover ? 0.008 : 0.04 * (1 + boost);          // px/ms; quase para no hover
+      m.x += v * dt * -m.w.dataset.dir / half;            // faixa 1 vai para a esquerda, faixa 2 para a direita
+      m.x = ((m.x % 1) + 1) % 1;                               // 0..1 de meia faixa
+      m.w.style.transform = `translateX(${-m.x * half}px)`;
+    });
+  }
+
+  /* serviço: zoom suave das fotos */
+  if (!RM) zoomers.forEach(zm => { const r = zm.getBoundingClientRect(); if (inView(r)) zm.style.setProperty('--z', 1.15 - .15 * ease(seg(1 - r.top / vh, 0, 1))); });
+
+  /* PESSOAS: foto ocupa a tela */
+  if (!RM) {
+    const { p, r } = progOf(ppOpen);
+    if (inView(r)) {
+      const k = ease(seg(p, 0, .7)), m = mobile();
+      const iy = (m ? 26 : 22) * (1 - k), ix = (m ? 10 : 32) * (1 - k);
+      ppPhoto.style.clipPath = `inset(${iy}% ${ix}% ${iy}% ${ix}%)`;
+      ppPhoto.style.setProperty('--z', 1.2 - .2 * k);
+    }
+  }
+
+  /* CTA flutuante: aparece depois do manifesto, some na capa e no contato */
+  { const a = $('#manifesto').getBoundingClientRect().bottom < vh * .5, z = $('#contato').getBoundingClientRect().top < vh * 1.05;
+    floatCta.classList.toggle('on', a && !z); }
+
+  /* corpo */
+  if (tone !== curTone) { document.body.dataset.tone = tone; curTone = tone; }
+  setChapter(ch);
+  chapter.style.setProperty('--pg', (y / (document.documentElement.scrollHeight - vh)).toFixed(3));
+
+  /* cursor, magnéticos */
+  cx = lerp(cx, mx, .28); cy = lerp(cy, my, .28);
+  cur.style.transform = `translate(${cx}px,${cy}px)`;
+  mags.forEach((m, i) => { const s = magState[i]; s.x = lerp(s.x, s.tx, .18); s.y = lerp(s.y, s.ty, .18); m.style.transform = `translate(${s.x.toFixed(2)}px,${s.y.toFixed(2)}px)`; });
+
+  requestAnimationFrame(frame);
+}
+
+addEventListener('resize', () => { vh = innerHeight; vw = innerWidth; });
+[heroTag, heroCue, heroTop].forEach(el => el.addEventListener('animationend', () => { el.style.animation = 'none'; }));
+if (RM) { mWords.forEach(w => w.classList.add('lit')); mHls.forEach(h => h.classList.add('lit')); $('#cal')?.classList.add('filled'); feed.classList.add('in'); setX(20); }
+requestAnimationFrame(frame);
+})();
+</script>
+
+</body>
+</html>
